@@ -2,9 +2,11 @@ import {useState} from 'react'
 
 interface Props {
     handleCreate: (newAdv: Adventure) => any;
+
 }
 
 interface Adventure {
+    id:number;
     health: number;
     attack:number;
     accuracy:number;
@@ -12,19 +14,10 @@ interface Adventure {
     items:number;
     villains:number
 }
-
-interface FormValues {
-    health: number;
-    attack:number;
-    accuracy:number;
-    weapons:number;
-    items:number;
-    villains:number
-}
-
 
 const Add: React.FC<Props> = ({ handleCreate }) => {
-    const [formValues, setFormValues] = useState<FormValues>({
+    const [formValues, setFormValues] = useState<Adventure>({
+    id: 0,
     health: 0,
     attack: 0,
     accuracy: 0,
@@ -42,6 +35,7 @@ const Add: React.FC<Props> = ({ handleCreate }) => {
     event.preventDefault();
     handleCreate(formValues);
     setFormValues({
+        id: 0,
         health: 0,
         attack: 0,
         accuracy: 0,
@@ -53,68 +47,38 @@ const Add: React.FC<Props> = ({ handleCreate }) => {
 
     return (
     <form onSubmit={handleSubmit}>
-    <label>
-    Health:
-    <input
-    type="number"
-    name="health"
-    value={formValues.health}
-    onChange={handleChange}
-    />
-    </label>
-    <br />
-    <label>
-          Attack:
-          <input
-            type="number"
-            name="attack"
-            value={formValues.attack}
-            onChange={handleChange}
-          />
+        <label>
+            Health:
+            <input type="number" name="health" value={formValues.health} onChange={handleChange}/>
         </label>
         <br />
         <label>
-          Accuracy:
-          <input
-            type="number"
-            name="accuracy"
-            value={formValues.accuracy}
-            onChange={handleChange}
-          />
+            Attack:
+            <input type="number" name="attack" value={formValues.attack} onChange={handleChange}/>
         </label>
         <br />
         <label>
-          Weapons:
-          <input
-            type="number"
-            name="weapons"
-            value={formValues.weapons}
-            onChange={handleChange}
-          />
+            Accuracy:
+            <input type="number" name="accuracy" value={formValues.accuracy} onChange={handleChange}/>
         </label>
         <br />
         <label>
-          Items:
-          <input
-            type="number"
-            name="items"
-            value={formValues.items}
-            onChange={handleChange}
-          />
+            Weapons:
+            <input type="number" name="weapons" value={formValues.weapons} onChange={handleChange}/>
         </label>
         <br />
         <label>
-          Villains:
-          <input
-            type="number"
-            name="villains"
-            value={formValues.villains}
-            onChange={handleChange}
-          />
+            Items:
+            <input type="number" name="items" value={formValues.items} onChange={handleChange}/>
         </label>
+        <br />
+            <label>
+            Villains:
+            <input type="number" name="villains" value={formValues.villains} onChange={handleChange}/>
+            </label>
         <br />
         <button type="submit">Add Adventure</button>
-      </form>
+    </form>
     );
   };
 

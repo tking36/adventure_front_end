@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react'
 import './App.css';
 import axios from 'axios'
 import Add from './components/Add'
+import Edit from './components/Edit'
 
 const App: React.FC = () => {
+  
 
   interface Adventure {
+    id:number;
     health: number;
     attack:number;
     accuracy:number;
@@ -19,7 +22,8 @@ interface Page {
 }
 
   const [page, setPage] = useState(0)
-  const [adventure, setAdventure] = useState([])
+  const [adventure, setAdventure] = useState<Adventure[]>([])
+  
 
   const getAdventures = () => {
     axios.get('https://adventure-back-end.herokuapp.com/api/adventure')
@@ -35,6 +39,22 @@ interface Page {
         setAdventure(adventure.concat(res.data)) 
 
       })
+    }
+
+    const handleUpdate = (editAdventure:Adventure): any => {
+      console.log(editAdventure)
+      axios.put("https://adventure-back-end.herokuapp.com/api/adventure/" + editAdventure.id, editAdventure)
+        .then((response) => {
+          getAdventures()
+        })
+    }
+
+    const handleDelete = (data:Adventure) => {
+      axios.delete("https://adventure-back-end.herokuapp.com/api/adventure/" + data.id)
+      .then((res) => {
+        getAdventures()
+      })
+      .catch((err) => console.log(err))
     }
 
   useEffect(() => {
@@ -53,6 +73,8 @@ interface Page {
             <p>Weapons: {adv.weapons}</p>
             <p>Items: {adv.items}</p>
             <p>Villains: {adv.villains}</p>
+            <Edit handleUpdate={handleUpdate} setAdventure={setAdventure} adventure={adventure} id={adventure[index].id} getAdventures={getAdventures} index={index}/>
+            <button onClick={() => handleDelete(adventure[index])}>Delete</button>
           </div>
         ))}
       </div>
