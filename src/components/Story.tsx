@@ -5,6 +5,8 @@ interface Props {
 }
 
 const Story: React.FC<Props> = ({ setPage }) => {
+
+    const Cockpit = require('./images/cockpit.png')
     
     const showPage = () => {
         setPage(false)
@@ -13,7 +15,7 @@ const Story: React.FC<Props> = ({ setPage }) => {
 
     return(
         <div className="store">
-            <h1>Story</h1>
+            <img src={Cockpit} alt="" />
             <button onClick={() => showPage()}> Go To Store</button>
         </div>
     )

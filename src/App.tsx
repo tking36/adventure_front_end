@@ -29,6 +29,7 @@ const [page, setPage] = useState<boolean>(true);
 
   const Space = require('./components/video/space.mp4')
   
+  
 
   const getAdventures = () => {
     axios.get('https://adventure-back-end.herokuapp.com/api/adventure')
