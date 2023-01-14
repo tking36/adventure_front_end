@@ -3,6 +3,11 @@ import './App.css';
 import axios from 'axios'
 import Add from './components/Add'
 import Edit from './components/Edit'
+import Middle from './components/Middle'
+import Left from './components/Left'
+import Bottom from './components/Bottom'
+import Nav from './components/Nav'
+
 
 const App: React.FC = () => {
   
@@ -17,12 +22,12 @@ const App: React.FC = () => {
     villains:number
   }
 
-interface Page {
-  page:number
-}
 
-  const [page, setPage] = useState(0)
+const [page, setPage] = useState<boolean>(true);
   const [adventure, setAdventure] = useState<Adventure[]>([])
+  const [hasStarted, setHasStarted] = useState<boolean>(true)
+
+  const Space = require('./components/video/space.mp4')
   
 
   const getAdventures = () => {
@@ -57,14 +62,34 @@ interface Page {
       .catch((err) => console.log(err))
     }
 
+   
   useEffect(() => {
     getAdventures()
     }, [])
 
-    return (
-      <div className="App">
+  
 
-        <Add handleCreate={handleCreate}/>
+    return (
+      <div className="App container-fluid">
+        <video autoPlay loop muted>
+          <source src={Space} type='video/mp4'/>
+        </video>
+        {hasStarted ?
+        <div className="start-container">
+          <div className="start-title ">Space Invaders</div>
+          <div className="start-text" onClick={() => setHasStarted(false)}>Start Game</div>
+        </div>
+          : 
+        <div className="main container-fluid">
+          <Left setPage={setPage}/>
+          <div className="right">
+            <Middle  setPage={setPage} page={page}/>
+            <Bottom setPage={setPage} />
+          </div>
+        </div>
+}
+
+        {/* <Add handleCreate={handleCreate}/>
         {adventure.map((adv: Adventure, index: number) => (
           <div key={index}>
             <p>Health: {adv.health}</p>
@@ -75,8 +100,8 @@ interface Page {
             <p>Villains: {adv.villains}</p>
             <Edit handleUpdate={handleUpdate} setAdventure={setAdventure} adventure={adventure} id={adventure[index].id} getAdventures={getAdventures} index={index}/>
             <button onClick={() => handleDelete(adventure[index])}>Delete</button>
-          </div>
-        ))}
+        </div>
+        ))} */}
       </div>
     );
 }

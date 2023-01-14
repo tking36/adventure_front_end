@@ -5,9 +5,172 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+
+.nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: purple;
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  height: 50rem;
+  background-color: brown;
+}
+
+.left {
+  background-color: red;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  
+}
+
+.user {
+  /* background-color: yellow; */
+  width: 30%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .user-title{
+  background-color: pink;
+  width: 90%;
+  height: 15%;
+  margin-top: 2rem;
+  z-index: 2;
+}
+.user-container{
+  background-color: rgb(255, 0, 43);
+  width: 28rem;
+  height: 17rem;
+  margin-top: 2rem;
+  z-index: 1;
+  position: fixed;
+} */
+
+.user-image-card{
+  width: 17rem;
+  position: fixed;
+  z-index: 1;
+}
+
+.user-image{
+  width: 13rem;
+  margin-top:1.5rem;
+}
+
+.user-title{
+  color: white;
+  width: 90%;
+  height: 15%;
+  margin-top: 0.55rem;
+  margin-bottom: 0;
+  z-index: 2;
+  font-size: 2rem;
+}
+
+.user-health{
+  z-index: 2;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.user-attack {
+  z-index: 2;
+  font-size: 1.5rem;
+}
+
+.info {
+  background-color: green;
+  width: 90%;
+  height: 30%;
+}
+
+.inventory {
+  background-color: orange;
+    width: 90%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.inv-container{
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  width: 90%; 
+}
+
+.right{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
+}
+
+.middle {
+  background-color: aqua;
+  height: 60%;
+  width: 100%;
+}
+
+.start-container{
+  width: 100%;
+  height: 55rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+video{
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.start-title{
+  font-size: 5rem;
+  z-index: 1;
+  color: white;
+}
+
+
+
+.start-text {
+  animation: blinker 1s linear infinite;
+  margin: auto;
+  font-size: 10rem;
+  color: white;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.bottom {
+  background-color: blue;
+  height: 40%;
 }
