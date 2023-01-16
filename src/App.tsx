@@ -27,13 +27,28 @@ const [page, setPage] = useState<boolean>(true);
   const [adventure, setAdventure] = useState<Adventure[]>([])
   const [hasStarted, setHasStarted] = useState<boolean>(true)
 
+  
   const Space = require('./components/video/space.mp4')
+
+  //////////////////////Game Variables///////////////////////
+  const [health, setHealth] = useState<number>(adventure.length ? adventure[0].health : 0)
+  const [attack, setAttack] = useState<number>(adventure.length ? adventure[0].attack : 0)
+  const [accuracy, setAccuracy] = useState<number>(adventure.length ? adventure[0].accuracy : 0)
+  const [items, setItems] = useState<[number, string][]>([[50, 'Health Potion'], [10, 'Weapon Upgrade'], [0.2, 'Accuracy Potion'], [40, 'Weapon Upgrade'], [50, 'Item Upgrade'], [60, 'Villain Upgrade']])
+
+  const [villains, setVillains] = useState<[number, number, string][]>([[20, 10, 'Maldroid'], [30,15,'Zetan Warrior'], [40, 20, 'Elki'], [50, 25, 'Elzi'], [55, 25, 'Elti']])
+  const [level, setLevel] = useState<number>(1)
+  const [shopOpen, setShopOpen] = useState<boolean>(false)
+  const [bank, setBank] = useState<number>(0)
+  const [resources, setResources] = useState<number>(0)
+  const [playerInventory, setPlayerInventory] = useState<[string, number][]>([])
+  //////////////////////Game Variables///////////////////////
   
   
 
   const getAdventures = () => {
     axios.get('https://adventure-back-end.herokuapp.com/api/adventure')
-    .then((response) => setAdventure(response.data),
+    .then((response) => setAdventure(response.data), 
       (err) => console.error(err))
     .catch((error) => console.error(error))
     }
@@ -72,20 +87,22 @@ const [page, setPage] = useState<boolean>(true);
 
     return (
       <div className="App container-fluid">
-        <video autoPlay loop muted>
-          <source src={Space} type='video/mp4'/>
-        </video>
         {hasStarted ?
+        <>
+        <video className='space-video' autoPlay loop muted>
+        <source src={Space} type='video/mp4'/>
+      </video>
         <div className="start-container">
           <div className="start-title ">Space Invaders</div>
           <div className="start-text" onClick={() => setHasStarted(false)}>Start Game</div>
         </div>
+        </>
           : 
         <div className="main container-fluid">
-          <Left setPage={setPage}/>
+          <Left adventure={adventure} setAdventure={setAdventure}/>
           <div className="right">
-            <Middle  setPage={setPage} page={page}/>
-            <Bottom setPage={setPage} />
+            <Middle adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page}/>
+            <Bottom setPage={setPage} adventure={adventure} setAdventure={setAdventure} page={page} />
           </div>
         </div>
 }
