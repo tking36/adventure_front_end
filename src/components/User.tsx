@@ -3,6 +3,12 @@
 interface Props {
     adventure: Adventure[];
     setAdventure: React.Dispatch<React.SetStateAction<Adventure[]>>;
+    health: number;
+    setHealth: React.Dispatch<React.SetStateAction<number>>;
+    attack: number;
+    setAttack: React.Dispatch<React.SetStateAction<number>>;
+    accuracy: number;
+    setAccuracy: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface Adventure {
@@ -15,7 +21,7 @@ interface Adventure {
     villains:number
   }
 
-const User: React.FC<Props> = ({ adventure }) => {
+const User: React.FC<Props> = ({ adventure, health, attack, accuracy }) => {
 
 
     return(
@@ -23,8 +29,8 @@ const User: React.FC<Props> = ({ adventure }) => {
             <h1 className='user-title'>Taylor</h1>
             <img src="https://i.imgur.com/Um35ZtJ.png" alt="" className="user-image" />
             <img src="https://i.imgur.com/D9MyDCG.png" alt="" className="user-image-card" />
-            <h2 className="user-health">Health: {adventure[0].health}</h2>
-            <h2 className="user-attack">Attack: {adventure[0].attack}</h2>
+            <h2 className="user-health">Health: {health}</h2>
+            <h2 className="user-attack">Attack: {attack}</h2>
         </div>
     )
 }
