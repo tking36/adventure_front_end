@@ -25,6 +25,8 @@ interface Props {
     setResources: React.Dispatch<React.SetStateAction<number>>
     playerInventory: [number, string][];
     setPlayerInventory: React.Dispatch<React.SetStateAction<[number, string][]>>;
+    battle: boolean;
+    setBattle: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface Adventure {
@@ -37,7 +39,7 @@ interface Adventure {
     villains:number
   }
 
-const Story: React.FC<Props> = ({ setPage, page, adventure, villains  }) => {
+const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle  }) => {
 
     const Cockpit = require('./images/cockpit.png')
 
@@ -47,7 +49,6 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains  }) => {
     return(
         <div className="story">
             <img className='cockpit-png' src={Cockpit} alt=""/>
-            <h1>{villains}</h1>
             {/* <button onClick={() => showPage()}> Go To Store</button> */}
         </div>
     )
