@@ -1,4 +1,4 @@
-
+import React, { useState } from 'react';
 
 interface Props {
     adventure: Adventure[];
@@ -37,7 +37,20 @@ interface Adventure {
     villains:number
   }
 
-const Store: React.FC<Props> = ({ setPage, adventure }) => {
+const Store: React.FC<Props> = ({ setPage, adventure, items, setBank, setPlayerInventory, playerInventory, bank, health, setHealth, setAttack, attack, setShopOpen, level, setLevel }) => {
+
+    const [buyItem , setBuyItem] = useState(false)
+
+
+    const buy = (num:number) => {
+            if (num === 1) {
+                setHealth(health += 10)
+            } else if (num === 2)  {
+                setAttack(attack += 5)
+            }
+    }
+
+
 
     const showPage = () => {
         setPage(true)
@@ -45,11 +58,28 @@ const Store: React.FC<Props> = ({ setPage, adventure }) => {
     }
 
     return(
+        
         <div className="store">
-            <h1>Store</h1>
-            <h1>{adventure[0].health}</h1>
-            <button onClick={() => showPage()}> Go To Story</button>
+            {level === 7 ?  
+            <>
+            <h1>Before you begin your journey</h1>
+            <h1>Choose a Health Upgrade or Weapon Upgrade</h1>
+            
+                <div className="store-item">
+                    <h3>{items[0][1]}</h3>
+                    <p>Price: {items[0][0]}</p>
+                    <button onClick={() => {buy(1); setPage(true); setShopOpen(false); setLevel(0)} }>Buy</button>
+                </div>
+                <div className="store-item">
+                    <h3>{items[1][1]}</h3>
+                    <p>Price: {items[1][0]}</p>
+                    <button onClick={() => {buy(2); setPage(true); setShopOpen(false); setLevel(0)} }>Buy</button>
+                </div>
+                </>
+                : null}
         </div>
+        
+        
     )
 }
 

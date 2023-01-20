@@ -23,7 +23,7 @@ const App: React.FC = () => {
   }
 
 
-const [page, setPage] = useState<boolean>(true);
+const [page, setPage] = useState<boolean>(false);
   const [adventure, setAdventure] = useState<Adventure[]>([])
   const [hasStarted, setHasStarted] = useState<boolean>(true)
 
@@ -34,17 +34,23 @@ const [page, setPage] = useState<boolean>(true);
 const [health, setHealth] = useState<number>(0)
 const [attack, setAttack] = useState<number>(0)
 const [accuracy, setAccuracy] = useState<number>(0)
-  const [items, setItems] = useState<[number, string][]>([[50, 'Health Mixture'],[60, 'Health Mixture'], [10, 'Weapon Upgrade'], [40, 'Weapon Upgrade']])
+  const [items, setItems] = useState<[number, string][]>([[10, 'Health Mixture +10'],[10, 'Laser Upgrade +5']])
 
-  const [villains, setVillains] = useState<[number, number, string][]>([[20, 10, 'Maldroid'], [30,15,'Zetan Warrior'], [40, 20, 'Elki'], [50, 25, 'Elzi'], [55, 25, 'Elti']])
+  const [villains, setVillains] = useState<[number, number, string][]>([[20, 10, 'Maldroid'], [30,15,'Zetan Warrior'], [40, 20, 'Elki']])
   const [level, setLevel] = useState<number>(0)
-  const [shopOpen, setShopOpen] = useState<boolean>(false)
+  const [shopOpen, setShopOpen] = useState<boolean>(true)
   const [bank, setBank] = useState<number>(0)
   const [resources, setResources] = useState<number>(0)
-  const [playerInventory, setPlayerInventory] = useState<[number, string][]>([[15, 'Health Mixture']])
+  const [playerInventory, setPlayerInventory] = useState<[number, string][]>([])
   const [name, setName] = useState<string>('')
   const [choice, setChoice] = useState<number>(0)
   const [battle, setBattle] = useState<boolean>(false)
+  const [message, setMessage] = useState('');
+  const [visible, setVisible] = useState(false);
+  const [userAttackMessage, setUserAttackMessage] = useState<string>('') 
+  const [itemMessage, setItemMessage] = useState<string>('')
+  const [villainAttackMessage, setVillainAttackMessage] = useState<string>('')
+
   //////////////////////Game Variables///////////////////////
   
   
@@ -81,7 +87,60 @@ const [accuracy, setAccuracy] = useState<number>(0)
       .catch((err) => console.log(err))
     }
 
+    ////////////////Battle/////////////////
+
     
+    const handleBattle = () => {
+      setBattle(true);
+      const villain = villains[0];
+      const missChance = 1-accuracy;
+      const hitChance = Math.random();
+      
+      if (hitChance > missChance) {
+          const userAttack = Math.floor(Math.random() * (attack - attack/2) + attack/2);
+          setVillains(prevVillains => {
+              prevVillains[0][0] = prevVillains[0][0] - userAttack;
+              return prevVillains;
+          });
+          setUserAttackMessage('You attacked and dealt ' + userAttack + ' damage ' + 'to the Alien.');
+          if (villain[0] <= 0) {
+            setUserAttackMessage('You have defeated the villain!');
+            setBattle(false);
+            setChoice(0)
+        }
+      } else {
+          setUserAttackMessage('Your attack missed!');
+      }
+            // Villain counter attack
+            if (villain[0] > 0) {
+                const villainAttack = Math.floor(Math.random() * (villain[1] - villain[1]/2) + villain[1]/2);
+                const counterMissChance = 1-accuracy;
+                const counterHitChance = Math.random();
+                if (counterHitChance > counterMissChance) {
+                    setHealth(health - villainAttack);
+                    setVillainAttackMessage( 'The villain counter attacked and dealt ' + villainAttack + ' damage.');
+                    if(health<=0)
+                    {
+                    setVillainAttackMessage( 'You lost the battle');
+                    setBattle(false);
+                    }
+                } else {
+                  setVillainAttackMessage('The villain\'s counter attack missed!');
+                    
+                    
+                }
+            }
+          }
+      
+    
+  
+      
+
+        
+        
+
+
+    ////////////////Battle/////////////////
 
     useEffect(() => {
       getAdventures();
@@ -106,20 +165,20 @@ const [accuracy, setAccuracy] = useState<number>(0)
           : 
         <div className="main container-fluid">
           <Left adventure={adventure} setAdventure={setAdventure} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} level={level} setLevel={setLevel} name ={name}
-          setName={setName} choice={choice} setChoice={setChoice} resources={resources} setResources={setResources} bank={bank} setBank={setBank}/>
+          setName={setName} choice={choice} setChoice={setChoice} resources={resources} setResources={setResources} bank={bank} setBank={setBank} battle={battle} setBattle={setBattle} villains={villains} setVillains={setVillains} shopOpen={shopOpen} setShopOpen={setShopOpen} visible={visible} setVisible={setVisible}/>
           
           <div className="right">
-          <Middle adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} battle={battle} setBattle={setBattle} />
+          <Middle adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} battle={battle} setBattle={setBattle} handleBattle={handleBattle} message={message} setMessage={setMessage} visible={visible} setVisible={setVisible} userAttackMessage={userAttackMessage} setUserAttackMessage={setUserAttackMessage} itemMessage={itemMessage} setItemMessage={setItemMessage} villainAttackMessage={villainAttackMessage} setVillainAttackMessage={setVillainAttackMessage} choice={choice} setChoice={setChoice}/>
             
           <Bottom adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} name ={name}
-          setName={setName} choice={choice} setChoice={setChoice} battle={battle} setBattle={setBattle}/>
+          setName={setName} choice={choice} setChoice={setChoice} battle={battle} setBattle={setBattle} handleBattle={handleBattle} message={message} setMessage={setMessage} visible={visible} setVisible={setVisible}/>
           </div>
         </div>
 }
       </div>
     );
+
 }
 
 export default App;
-
 

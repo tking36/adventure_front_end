@@ -160,6 +160,7 @@ width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
+overflow: hidden;
 }
 
 .stars-video{
@@ -174,6 +175,95 @@ align-items: center;
 
 .cockpit-png{
 position: fixed;
+z-index: 1;
+}
+
+.left-window{
+  position: fixed;
+  top: 17rem;
+  left: 47rem;
+  width: 10rem;
+  height: 10rem;
+  z-index: 1;
+  
+}
+
+.right-window{
+  position: fixed;
+  top: 21rem;
+  left: 83rem;
+  width: 10px;
+  height: 10px;
+  z-index: 1;
+  background-color: rgb(51, 255, 0);
+}
+
+.middle-window{
+  position: fixed;
+  top: 9rem;
+  left: 62rem;
+  width: 11rem;
+  height: 11rem;
+  z-index: 1;
+}
+
+.middle-window2{
+  position: fixed;
+  top: 4rem;
+  left: 55rem;
+  width: 23em;
+  height: 23rem;
+  z-index: 0;
+}
+
+.middle-window3{
+  position: fixed;
+  top: 8rem;
+  left: 60rem;
+  width: 10em;
+  height: 10rem;
+  z-index: 0;
+}
+
+.middle-window4{
+  position: fixed;
+  top: 11rem;
+  left: 63.5rem;
+  width: 7rem;
+  height: 7rem;
+  z-index: 0;
+}
+
+.middle-window5{
+  position: fixed;
+  top: 8rem;
+  left: 63.58rem;
+  width: 7rem;
+  height: 7rem;
+  z-index: 1;
+}
+
+.middle-window6{
+  position: fixed;
+  top: 0rem;
+  left: 48.58rem;
+  width: 30rem;
+  height: 30rem;
+  z-index: 0;
+}
+
+.planet1-land{
+  position: fixed;
+  z-index: -1;
+  width: 65.5%;
+  height: 55%;
+}
+
+.offering {
+  position: fixed;
+  z-index: -1;
+  width: 65.5%;
+  height: 55%;
 }
 
 .start-container{
@@ -198,8 +288,6 @@ position: fixed;
   color: white;
 }
 
-
-
 .start-text {
   animation: blinker 1s linear infinite;
   margin: auto;
@@ -213,37 +301,168 @@ position: fixed;
   }
 }
 
+
+
 .bottom {
   background-color: blue;
   height: 40%;
 }
 
-/* .tooltip {
-  position: relative;
-  display: inline-block;
+
+
+.message {
+  z-index: 3;
+  color: white;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 140px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
+.alien{
+  width: 11rem;
+}
+
+.villain-health{
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.villain-attack{
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.villain-container{
+  display: flex;
+  align-items: center;
+}
+
+.alien-name {
+  font-size: 2rem;
+}
+
+.glow-middle {
+  position: fixed;
+  top: 11rem;
+  left: 65rem;
+  width: 5rem;
+  height: 5rem;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -75px;
-  opacity: 0;
-  transition: opacity 0.3s;
+  border-radius:50%;
+  -webkit-animation: glowing 1s ease-in-out infinite alternate;
+  -moz-animation: glowing 1s ease-in-out infinite alternate;
+  animation: glowing 1s ease-in-out infinite alternate;
+}
+@keyframes glowing {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px cyan, 0 0 40px #0ff, 0 0 50px blue, 0 0 60px blue, 0 0 70px blue;
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 30px green, 0 0 40px green, 0 0 50px green, 0 0 60px green, 0 0 70px green, 0 0 80px green;
+  }
 }
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-} */
+.glow-middle2 {
+  position: fixed;
+  top: 11rem;
+  left: 65rem;
+  width: 10rem;
+  height: 10rem;
+  z-index: 0;
+  border-radius:50%;
+  -webkit-animation: glowing 1s ease-in-out infinite alternate;
+  -moz-animation: glowing 1s ease-in-out infinite alternate;
+  animation: glowing 1s ease-in-out infinite alternate;
+}
+@keyframes glowing {
+  from {
+    box-shadow: 0 0 10px rgb(255, 2, 2), 0 0 20px red, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px yellow, 0 0 60px yellow, 0 0 70px yellow;
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 30px orange, 0 0 40px orange, 0 0 50px orange, 0 0 60px orange, 0 0 70px orange, 0 0 80px orange;
+  }
+}
+
+.glow-middle3 {
+  position: fixed;
+  top: 13rem;
+  left: 65.5rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 0;
+  border-radius:50%;
+  -webkit-animation: glowing 1s ease-in-out infinite alternate;
+  -moz-animation: glowing 1s ease-in-out infinite alternate;
+  animation: glowing 1s ease-in-out infinite alternate;
+}
+@keyframes glowing {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px cyan, 0 0 40px red, 0 0 50px red, 0 0 60px red, 0 0 70px red;
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 30px orange, 0 0 40px orange, 0 0 50px orange, 0 0 60px orange, 0 0 70px orange, 0 0 80px orange;
+  }
+}
+
+.glow-middle4 {
+  position: fixed;
+  top: 20rem;
+  left: 50rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 0;
+  border-radius:50%;
+  -webkit-animation: glowing 1s ease-in-out infinite alternate;
+  -moz-animation: glowing 1s ease-in-out infinite alternate;
+  animation: glowing 1s ease-in-out infinite alternate;
+}
+@keyframes glowing {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px cyan, 0 0 40px white, 0 0 50px white, 0 0 60px white, 0 0 70px white;
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 30px cyan, 0 0 40px cyan, 0 0 50px cyan, 0 0 60px cyan, 0 0 70px cyan, 0 0 80px cyan;
+  }
+}
+
+.glow-middle5 {
+  position: fixed;
+  top: 10rem;
+  left: 62rem;
+  width: 9rem;
+  height: 9rem;
+  z-index: 0;
+  border-radius:50%;
+  -webkit-animation: glowing 1s ease-in-out infinite alternate;
+  -moz-animation: glowing 1s ease-in-out infinite alternate;
+  animation: glowing 1s ease-in-out infinite alternate;
+}
+@keyframes glowing {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px cyan, 0 0 40px white, 0 0 50px white, 0 0 60px white, 0 0 70px white;
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 30px cyan, 0 0 40px cyan, 0 0 50px cyan, 0 0 60px cyan, 0 0 70px cyan, 0 0 80px cyan;
+  }
+}
+
+.glow-middle6 {
+  position: fixed;
+  top: 15rem;
+  left: 62rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 0;
+  border-radius:50%;
+  -webkit-animation: glowing 1s ease-in-out infinite alternate;
+  -moz-animation: glowing 1s ease-in-out infinite alternate;
+  animation: glowing 1s ease-in-out infinite alternate;
+}
+@keyframes glowing {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px cyan, 0 0 40px white, 0 0 50px white, 0 0 60px white, 0 0 70px white;
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 30px cyan, 0 0 40px cyan, 0 0 50px cyan, 0 0 60px cyan, 0 0 70px cyan, 0 0 80px cyan;
+  }
+}
 
 
 
