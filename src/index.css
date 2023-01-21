@@ -93,7 +93,7 @@ code {
   font-size: 1.2rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  background-color: green;
+  background-color: black;
   width: 90%;
   height: 30%;
   overflow: scroll;
@@ -101,14 +101,47 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .info-title{
   position: fixed;
+  background-color: rgb(31, 244, 31);
+  border-radius: 10%;
+  box-shadow: 0px -5px 30px rgb(31, 244, 31);
+  
 }
 
 .info{
   margin-top: 3rem;
+  color: rgb(31, 244, 31);
+  font-family: 'Roboto Mono', monospace;
+}
+
+.flashing {
+  animation: flash 1s infinite;
+  background-color: red;
+  border-radius: 10%;
+  box-shadow: 0px -5px 30px red;
+}
+
+.info-update{
+  background-image: url('./components/images/Control-Panel.gif');
+  background-size: cover;
+  background-position-y: top;
+  background-position-x: center;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 
@@ -369,9 +402,7 @@ z-index: 1;
 
 
 .bottom {
-  background-image: url("./components/images/Control-Panel.gif");
-  background-size: cover;
-  background-position: center;
+background-color: blue;
   height: 40%;
 }
 
@@ -390,19 +421,47 @@ z-index: 1;
   width: 11rem;
 }
 
+.alien-name{
+  color: rgb(66, 252, 66);
+  font-size: 1.5rem;
+}
+
 .villain-health{
-  font-size: 2rem;
-  margin-right: 1rem;
+  font-size: 1.5rem;
+  margin-right: 2rem;
+  color: rgb(66, 252, 66);
 }
 
 .villain-attack{
-  font-size: 2rem;
-  margin-left: 1rem;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  color: rgb(66, 252, 66);
 }
 
 .villain-container{
   display: flex;
   align-items: center;
+  z-index: 0;
+  font-family: 'Audiowide', cursive;
+  text-shadow: rgb(66, 252, 66) 0px 0px 30px;
+  
+}
+
+.villain-bg{
+  position: fixed;
+  top: 32rem;
+  left: 3.5rem;
+  z-index: 0;
+  width: 30.7rem;
+  height: 14.7rem;
+  background-image: url('./components/images/villain-bg.gif') ;
+  background-size: 100%;
+  background-position-x: center;
+  background-position-y: 0%;
+}
+
+.locked{
+  overflow: hidden;
 }
 
 .alien-name {

@@ -135,6 +135,9 @@ interface Adventure {
 
 console.log(level);
 console.log(choice);
+console.log('=====');
+console.log(ignite);
+
 
 
 
@@ -156,26 +159,26 @@ if (delayed) {
             <h1>Earth Sends You To Collect Resources</h1>
             <h1>Make The Best Choice When Faced With A Difficult Situation</h1>
             <h1>Return to Earth With Resources To Save Humanity</h1>
-            <div className='button2' onClick={() => {setShopOpen(false); setLevel(7)}}>Begin Journey</div>
+            <div className='button2' onClick={() => {setShopOpen(false); setLevel(7);}}>Begin Journey</div>
             </>
             : null}
 
             {level  === 0 && !shopOpen  ? 
             <div className="button-container">
-            <div className='button2' onClick={() => {getName(); levelStory(1); setVisible(false)}}>Enter Name</div>
+            <div className='button2' onClick={() => {getName(); levelStory(1); setVisible(false); blastOff()}}>Enter Name</div>
             </div>
             : null}
                 {level === 1 && choice === 0 && visible ?
             <div className="button-container">
-            <div className='button2' onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false) }}>Choose to Help the Aliens</div>
+            <div className='button2' onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false); blastOff() }}>Choose to Help the Aliens</div>
 
-            <div className='button2' onClick={() => { makeChoice(2);  setDelayed(true); setVisible(false)}}>Choose not to Help the Aliens</div>
+            <div className='button2' onClick={() => { makeChoice(2);  setDelayed(true); setVisible(false); blastOff()}}>Choose not to Help the Aliens</div>
             </div>
                 : null}
 
             {level === 1 && choice === 2 && !battle && visible ?
             <div className="button-container">
-            <div className='button2' onClick={() => {setBattle(true); setResources(resources + 10); setVisible(false)}} >Battle</div>
+            <div className='button2' onClick={() => {setBattle(true); setResources(resources + 10); setVisible(false);}} >Battle</div>
             </div>
             : null}
 
@@ -196,8 +199,8 @@ if (delayed) {
             {level === 2 && choice === 0 && visible ? 
             <div className="button-container">
             
-            <div className='button2' onClick={() => { makeChoice(1); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false) }}>Choose to take Resources</div>
-            <div className='button2' onClick={() => { makeChoice(2); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false)}}>Choose to take Laser Gun</div>
+            <div className='button2' onClick={() => { makeChoice(1); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false); blastOff() }}>Choose to take Resources</div>
+            <div className='button2' onClick={() => { makeChoice(2); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false); blastOff()}}>Choose to take Laser Gun</div>
             </div>
             : null}
 
@@ -211,8 +214,8 @@ if (delayed) {
 
             {level === 3 && choice === 0 && visible ?
             <div className="button-container">
-            <div className='button2' onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false) }}>Choose to Run</div>
-            <div className='button2' onClick={() => { makeChoice(2);  setDelayed(true); setVisible(false) }}>Choose to Battle</div>
+            <div className='button2' onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false); blastOff() }}>Choose to Run</div>
+            <div className='button2' onClick={() => { makeChoice(2);  setDelayed(true); setVisible(false); blastOff() }}>Choose to Battle</div>
             </div>
             : null}
 
@@ -236,8 +239,8 @@ if (delayed) {
 
             {level === 4 && choice === 0 && visible?
             <div className="button-container">
-            <div className='button2' onClick={() => {setChoice(1); removeVillain(); setVisible(false)}} >Choose to Fight</div>
-            <div className='button2' onClick={() => { setChoice(2); removeVillain(); setVisible(false) }} >Choose to Run</div>
+            <div className='button2' onClick={() => {setChoice(1); removeVillain(); setVisible(false); blastOff()}} >Choose to Fight</div>
+            <div className='button2' onClick={() => { setChoice(2); removeVillain(); setVisible(false); blastOff() }} >Choose to Run</div>
             </div>
             : null}
 

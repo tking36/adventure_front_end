@@ -75,6 +75,7 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
     const Fireworks = require('./images/Fireworks.gif')
     
     
+    
    
     
    
@@ -116,8 +117,8 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
             { level === 1 && choice === 2 ?
             <>
                 <div className="glow-middle3"></div>
+                <img src={Frozen} alt="" className="middle-window2" />
                 <img src={Ship} alt="" className="middle-window" />
-
                 {bank === 1 ? <img src={Attack} alt="" className="middle-window5" />   : null}
                 
             </>
@@ -245,7 +246,7 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
                 <div className="glow-middle3"></div>
                 <img src={Earth} alt="" className="middle-window4" />
                 <img src={Astroids} alt="" className="middle-window6" />
-                <img src={Ship3} alt="" className="middle-window7" />
+                <img src={Ship3} alt="" className="middle-window2" />
                 {bank === 1 ? <img src={Attack} alt="" className="middle-window5" />   : null}
             </>
             : null}

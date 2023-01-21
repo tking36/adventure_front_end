@@ -25,6 +25,8 @@ interface Props {
     setResources: React.Dispatch<React.SetStateAction<number>>
     playerInventory: [number, string][];
     setPlayerInventory: React.Dispatch<React.SetStateAction<[number, string][]>>;
+    ignite: boolean;
+    setIgnite: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface Adventure {
@@ -37,7 +39,7 @@ interface Adventure {
     villains:number
   }
 
-const Store: React.FC<Props> = ({ setPage, adventure, items, setBank, setPlayerInventory, playerInventory, bank, health, setHealth, setAttack, attack, setShopOpen, level, setLevel }) => {
+const Store: React.FC<Props> = ({ setPage, adventure, items, setBank, setPlayerInventory, playerInventory, bank, health, setHealth, setAttack, attack, setShopOpen, level, setLevel, setIgnite }) => {
 
     const [buyItem , setBuyItem] = useState(false)
 
@@ -50,6 +52,12 @@ const Store: React.FC<Props> = ({ setPage, adventure, items, setBank, setPlayerI
             } else if (num === 2)  {
                 setAttack(attack += 5)
             }
+    }
+    const blastOff = () => {
+        setIgnite(true);
+        setTimeout(() => {
+            setIgnite(false);
+        }, 3000);
     }
 
 
@@ -70,12 +78,12 @@ const Store: React.FC<Props> = ({ setPage, adventure, items, setBank, setPlayerI
                 <div className="store-item">
                     <h3>{items[0][1]}</h3>
                     <p>Price: {items[0][0]}</p>
-                    <div className='button' onClick={() => {buy(1); setPage(true); setShopOpen(false); setLevel(0)} }>Buy</div>
+                    <div className='button' onClick={() => {buy(1); setPage(true); setShopOpen(false); setLevel(0); blastOff()} }>Buy</div>
                 </div>
                 <div className="store-item">
                     <h3>{items[1][1]}</h3>
                     <p>Price: {items[1][0]}</p>
-                    <div className='button' onClick={() => {buy(2); setPage(true); setShopOpen(false); setLevel(0)} }>Buy</div>className='button' 
+                    <div className='button' onClick={() => {buy(2); setPage(true); setShopOpen(false); setLevel(0); blastOff()} }>Buy</div>className='button' 
                 </div>
                 </>
                 : null}
