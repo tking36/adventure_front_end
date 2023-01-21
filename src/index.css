@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
+  font-family: 'Audiowide', cursive;
 }
 
 code {
@@ -49,21 +50,6 @@ code {
   align-items: center;
 }
 
-/* .user-title{
-  background-color: pink;
-  width: 90%;
-  height: 15%;
-  margin-top: 2rem;
-  z-index: 2;
-}
-.user-container{
-  background-color: rgb(255, 0, 43);
-  width: 28rem;
-  height: 17rem;
-  margin-top: 2rem;
-  z-index: 1;
-  position: fixed;
-} */
 
 .user-image-card{
   width: 17rem;
@@ -74,6 +60,11 @@ code {
 .user-image{
   width: 13rem;
   margin-top:1.5rem;
+}
+
+.user-image0{
+  width: 14rem;
+  margin-top:0.65rem;
 }
 
 .user-title{
@@ -98,6 +89,10 @@ code {
 }
 
 .info-container {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   background-color: green;
   width: 90%;
   height: 30%;
@@ -114,20 +109,6 @@ code {
 
 .info{
   margin-top: 3rem;
-}
-
-
-
-
-
-.inventory {
-  background-color: orange;
-    width: 90%;
-    height: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 
@@ -252,6 +233,24 @@ z-index: 1;
   z-index: 0;
 }
 
+.middle-window7{
+  position: fixed;
+  top: 9rem;
+  left: 62rem;
+  width: 10rem;
+  height: 10rem;
+  z-index: 0;
+}
+
+.middle-window7{
+  position: fixed;
+  top: 0;
+  left: 58rem;
+  width: 13rem;
+  height: 13rem;
+  z-index: 0;
+}
+
 .planet1-land{
   position: fixed;
   z-index: -1;
@@ -266,6 +265,27 @@ z-index: 1;
   height: 55%;
 }
 
+
+
+.booster1{
+  position: fixed;
+  z-index: 1;
+  width: 6rem;
+  height: 6rem;
+  top: 27rem;
+  left: 48rem;
+  transform: rotate(-0.25turn);
+}
+
+.booster2{
+  position: fixed;
+  z-index: 1;
+  width: 6rem;
+  height: 6rem;
+  top: 27rem;
+  left: 81rem;
+  transform: rotate(-0.25turn);
+}
 .start-container{
   width: 100%;
   height: 55rem;
@@ -295,6 +315,51 @@ z-index: 1;
   color: white;
 }
 
+.button-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./components/images/Button.png");
+  background-size: cover;
+  width: 9rem;
+  height: 3rem;
+  cursor:pointer;
+  color:#0ff;
+  margin: auto;
+}
+
+.button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./components/images/Button.png");
+  background-size: cover;
+  width: 16rem;
+  height: 5rem;
+  cursor:pointer;
+  color:#0ff;
+  margin: auto;
+}
+
+.button2:hover {
+ text-shadow: green 0 0 10px;
+ font-size: large;
+}
+
+
+.button2:active{
+  color: rgb(66, 252, 66);
+  text-shadow: red 2px 2px 14px;
+  font-size: large;
+}
+
 @keyframes blinker {
   50% {
     opacity: 0;
@@ -304,8 +369,14 @@ z-index: 1;
 
 
 .bottom {
-  background-color: blue;
+  background-image: url("./components/images/Control-Panel.gif");
+  background-size: cover;
+  background-position: center;
   height: 40%;
+}
+
+.bottom-title{
+
 }
 
 

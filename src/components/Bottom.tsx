@@ -37,6 +37,8 @@ interface Props {
     setMessage: React.Dispatch<React.SetStateAction<string>>;
     visible: boolean;
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    ignite: boolean;
+    setIgnite: React.Dispatch<React.SetStateAction<boolean>>;
     
 }
 
@@ -51,7 +53,7 @@ interface Adventure {
   }
 
 
-  const Bottom: React.FC<Props> = ({ setPage, page, adventure, level, setLevel, name, setName, shopOpen, resources, setResources, health, setHealth, choice, setChoice, bank, setBank, battle, setBattle, villains, setVillains, attack, items, playerInventory,accuracy,setPlayerInventory, handleBattle, visible, setVisible, message, setMessage,setAttack, setShopOpen }) => {
+  const Bottom: React.FC<Props> = ({ setPage, page, adventure, level, setLevel, name, setName, shopOpen, resources, setResources, health, setHealth, choice, setChoice, bank, setBank, battle, setBattle, villains, setVillains, attack, items, playerInventory,accuracy,setPlayerInventory, handleBattle, visible, setVisible, message, setMessage,setAttack, setShopOpen, ignite, setIgnite }) => {
 
     const [battleComplete, setBattleComplete] = useState(false);
     
@@ -101,6 +103,12 @@ interface Adventure {
             setBank(0);
         }, 700);
     }
+    const blastOff = () => {
+        setIgnite(true);
+        setTimeout(() => {
+            setIgnite(false);
+        }, 3000);
+    }
 
     const checkHealth = () => {
         setTimeout(() => {
@@ -127,7 +135,7 @@ interface Adventure {
 
 console.log(level);
 console.log(choice);
-console.log(bank);
+
 
 
 const [delayed, setDelayed] = useState(false);
@@ -141,130 +149,127 @@ if (delayed) {
 
     return(
         <div className="bottom">
-            {level === 0 && shopOpen ? <h1>How To Play</h1> : <h1>Control Panel</h1> }
+            {level === 0 && shopOpen ? <h1 className='bottom-title'>How To Play</h1> : <h1>Control Panel</h1> }
 
             {level === 0 && shopOpen ?
             <>
             <h1>Earth Sends You To Collect Resources</h1>
             <h1>Make The Best Choice When Faced With A Difficult Situation</h1>
             <h1>Return to Earth With Resources To Save Humanity</h1>
-            <button onClick={() => {setShopOpen(false); setLevel(7)}}>Begin Journey</button>
+            <div className='button2' onClick={() => {setShopOpen(false); setLevel(7)}}>Begin Journey</div>
             </>
             : null}
 
             {level  === 0 && !shopOpen  ? 
-            <button onClick={() => {getName(); levelStory(1); setVisible(false)}}>Enter Name</button>
+            <div className="button-container">
+            <div className='button2' onClick={() => {getName(); levelStory(1); setVisible(false)}}>Enter Name</div>
+            </div>
             : null}
-
-            
                 {level === 1 && choice === 0 && visible ?
-            <>
-            <button onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false) }}>Choose to Help the Aliens</button>
+            <div className="button-container">
+            <div className='button2' onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false) }}>Choose to Help the Aliens</div>
 
-            <button onClick={() => { makeChoice(2);  setDelayed(true); setVisible(false)}}>Choose not to Help the Aliens</button>
-
-           
-            </>
+            <div className='button2' onClick={() => { makeChoice(2);  setDelayed(true); setVisible(false)}}>Choose not to Help the Aliens</div>
+            </div>
                 : null}
 
             {level === 1 && choice === 2 && !battle && visible ?
-            <>
-            <button onClick={() => {setBattle(true); setResources(resources + 10); setVisible(false)}} >Battle</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {setBattle(true); setResources(resources + 10); setVisible(false)}} >Battle</div>
+            </div>
             : null}
 
             {level ===1 && choice === 1 && visible ? 
-            <>
-            <button onClick={() => {setLevel(2); setChoice(0); setDelayed(false); setVisible(false)}} >Ignite Engines</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {setLevel(2); setChoice(0); setDelayed(false); setVisible(false); blastOff()}} >Ignite Engines</div>
+            </div>
             : null}
             
             
 
             {level === 1 && battle ?
-            <>
-            <button onClick={() => {handleBattle(); checkHealth(); setDelayed(false) }} >Shoot Laser Blaster</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {handleBattle(); checkHealth(); setDelayed(false) }} >Shoot Laser Blaster</div>
+            </div>
             : null}
 
             {level === 2 && choice === 0 && visible ? 
-            <>
+            <div className="button-container">
             
-            <button onClick={() => { makeChoice(1); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false) }}>Choose to take Resources</button>
-            <button onClick={() => { makeChoice(2); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false)}}>Choose to take Laser Gun</button>
-            </>
+            <div className='button2' onClick={() => { makeChoice(1); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false) }}>Choose to take Resources</div>
+            <div className='button2' onClick={() => { makeChoice(2); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false)}}>Choose to take Laser Gun</div>
+            </div>
             : null}
 
             
 
             {level === 2 && choice != 0 && visible ? 
-            <>
-            <button onClick={() => {setLevel(3); setChoice(0); setVisible(false)}} >Ignite Engines</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {setLevel(3); setChoice(0); setVisible(false); blastOff()}} >Ignite Engines</div>
+            </div>
             : null}
 
             {level === 3 && choice === 0 && visible ?
-            <>
-            <button onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false) }}>Choose to Run</button>
-            <button onClick={() => { makeChoice(2);  setDelayed(true); setVisible(false) }}>Choose to Battle</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false) }}>Choose to Run</div>
+            <div className='button2' onClick={() => { makeChoice(2);  setDelayed(true); setVisible(false) }}>Choose to Battle</div>
+            </div>
             : null}
 
             {level === 3 && choice === 1 && visible ?
-            <>
-            
-            <button onClick={() => {setLevel(4); setChoice(0); setVisible(false)}} >Ignite Engines</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {setLevel(4); setChoice(0); setVisible(false); blastOff()}} >Ignite Engines</div>
+            </div>
             : null}
 
             {level === 3 && choice === 2 && !battle && visible ?
-            <>
-            <button onClick={() => {setBattle(true); storyChoice(); setResources(resources + 10); setVisible(false)}} >Battle</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {setBattle(true); storyChoice(); setResources(resources + 10); setVisible(false)}} >Battle</div>
+            </div>
             : null}
 
             {level === 3 && battle ?
-            <>
-            <button onClick={() => {handleBattle(); checkHealth(); setDelayed(false);}} >Shoot Laser Blaster</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {handleBattle(); checkHealth(); setDelayed(false);}} >Shoot Laser Blaster</div>
+            </div>
             : null}
 
             {level === 4 && choice === 0 && visible?
-            <>
-            <button onClick={() => {setChoice(1); removeVillain(); setVisible(false)}} >Choose to Fight</button>
-            <button onClick={() => { setChoice(2); removeVillain(); setVisible(false) }} >Choose to Run</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {setChoice(1); removeVillain(); setVisible(false)}} >Choose to Fight</div>
+            <div className='button2' onClick={() => { setChoice(2); removeVillain(); setVisible(false) }} >Choose to Run</div>
+            </div>
             : null}
 
             {level === 4 && choice === 1 && !battle && visible ?
-            <>
-            <button onClick={() => {setBattle(true); setResources(resources + 10); setBattleComplete(true)}} >Battle</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {setBattle(true); setResources(resources + 10); setBattleComplete(true)}} >Battle</div>
+            </div>
             : null}
 
             {level === 4 && battle ?
-            <>
-            <button onClick={() => {handleBattle(); checkHealth(); setDelayed(false) }} >Shoot Laser Blaster</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {handleBattle(); checkHealth(); setDelayed(false) }} >Shoot Laser Blaster</div>
+            </div>
             : null}
 
-            {level === 4 && choice != 0 && visible ?
-            <>
+            {level === 4 && choice != 0 && choice !=1 && visible ?
+            <div className="button-container">
             
-            <button onClick={() => {setLevel(5); setChoice(0); setVisible(false)}} >Ignite Engines</button>
-            </>
+            <div className='button2' onClick={() => {setLevel(5); setChoice(0); setVisible(false); blastOff()}} >Ignite Engines</div>
+            </div>
             : null}
 
             {level === 5 && choice === 0 && visible ?      
-            <>
-            <button onClick={() => {setLevel(5); setChoice(1); setVisible(false)}} >Travel to Earth</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {setLevel(5); setChoice(1); setVisible(false); blastOff()}} >Travel to Earth</div>
+            </div>
             : null}
 
             {level === 5 && choice === 1 && visible?
-            <>
-            <button onClick={() => {setChoice(2);}} >Land Ship on Earth</button>
-            </>
+            <div className="button-container">
+            <div className='button2' onClick={() => {setChoice(2);}} >Land Ship on Earth</div>
+            </div>
             : null}
 
             {level === 5 && choice === 2 ?
@@ -275,9 +280,8 @@ if (delayed) {
             : null}
 
             {health <= 0 ?
-            <>
             <h1>GAME OVER</h1>
-            </>
+           
             : null}
         </div>
     )

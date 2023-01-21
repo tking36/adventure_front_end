@@ -50,6 +50,7 @@ const [accuracy, setAccuracy] = useState<number>(0)
   const [userAttackMessage, setUserAttackMessage] = useState<string>('') 
   const [itemMessage, setItemMessage] = useState<string>('')
   const [villainAttackMessage, setVillainAttackMessage] = useState<string>('')
+  const [ignite , setIgnite] = useState<boolean>(false)
 
   //////////////////////Game Variables///////////////////////
   
@@ -168,10 +169,10 @@ const [accuracy, setAccuracy] = useState<number>(0)
           setName={setName} choice={choice} setChoice={setChoice} resources={resources} setResources={setResources} bank={bank} setBank={setBank} battle={battle} setBattle={setBattle} villains={villains} setVillains={setVillains} shopOpen={shopOpen} setShopOpen={setShopOpen} visible={visible} setVisible={setVisible}/>
           
           <div className="right">
-          <Middle adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} battle={battle} setBattle={setBattle} handleBattle={handleBattle} message={message} setMessage={setMessage} visible={visible} setVisible={setVisible} userAttackMessage={userAttackMessage} setUserAttackMessage={setUserAttackMessage} itemMessage={itemMessage} setItemMessage={setItemMessage} villainAttackMessage={villainAttackMessage} setVillainAttackMessage={setVillainAttackMessage} choice={choice} setChoice={setChoice}/>
+          <Middle adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} battle={battle} setBattle={setBattle} handleBattle={handleBattle} message={message} setMessage={setMessage} visible={visible} setVisible={setVisible} userAttackMessage={userAttackMessage} setUserAttackMessage={setUserAttackMessage} itemMessage={itemMessage} setItemMessage={setItemMessage} villainAttackMessage={villainAttackMessage} setVillainAttackMessage={setVillainAttackMessage} choice={choice} setChoice={setChoice} ignite={ignite} setIgnite={setIgnite}/>
             
           <Bottom adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} name ={name}
-          setName={setName} choice={choice} setChoice={setChoice} battle={battle} setBattle={setBattle} handleBattle={handleBattle} message={message} setMessage={setMessage} visible={visible} setVisible={setVisible}/>
+          setName={setName} choice={choice} setChoice={setChoice} battle={battle} setBattle={setBattle} handleBattle={handleBattle} message={message} setMessage={setMessage} visible={visible} setVisible={setVisible} ignite={ignite} setIgnite={setIgnite}/>
           </div>
         </div>
 }

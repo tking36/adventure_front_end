@@ -206,9 +206,15 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
                 </p>
                 : null}
 
-                {level === 5 && choice === 0 ?
+                {level === 5 && choice === 0 && villains[0][0] <= 0 ?
                 <p className="info">
                     The astronaut defeats the alien and acquires resources from the asteroid field. The astronaut is relieved that they were able to acquire more resources.
+                </p>
+                : null}
+
+                {level === 5 && choice === 0  ?
+                <p className="info">
+                    Time to go Home
                 </p>
                 : null}
 

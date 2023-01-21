@@ -42,6 +42,8 @@ interface Props {
     setVillainAttackMessage: React.Dispatch<React.SetStateAction<string>>;
     choice: number;
     setChoice: React.Dispatch<React.SetStateAction<number>>;
+    ignite: boolean;
+    setIgnite: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface Adventure {
@@ -54,7 +56,7 @@ interface Adventure {
     villains:number
   }
 
-const Middle: React.FC<Props> = ({ setPage, page, adventure, setAdventure, villains, setVillains, health, setHealth, attack,setAttack, accuracy, setAccuracy, items, setItems, level, setLevel, shopOpen, setShopOpen, bank, setBank, resources, setResources, playerInventory, setPlayerInventory, battle, setBattle, handleBattle, message, setMessage, visible, setVisible, setUserAttackMessage, userAttackMessage, itemMessage, setItemMessage, villainAttackMessage, setVillainAttackMessage, choice, setChoice}) => {
+const Middle: React.FC<Props> = ({ setPage, page, adventure, setAdventure, villains, setVillains, health, setHealth, attack,setAttack, accuracy, setAccuracy, items, setItems, level, setLevel, shopOpen, setShopOpen, bank, setBank, resources, setResources, playerInventory, setPlayerInventory, battle, setBattle, handleBattle, message, setMessage, visible, setVisible, setUserAttackMessage, userAttackMessage, itemMessage, setItemMessage, villainAttackMessage, setVillainAttackMessage, choice, setChoice, ignite, setIgnite}) => {
     const Stars = require('./video/Stars.mp4')
 
 return(
@@ -62,7 +64,7 @@ return(
         <video className='stars-video' autoPlay loop muted>
                 <source src={Stars} type='video/mp4'/>
         </video>
-        { page ?  <Story adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} battle={battle} setBattle={setBattle} message={message} setMessage={setMessage} handleBattle={handleBattle} visible={visible} setVisible={setVisible} userAttackMessage={userAttackMessage} setUserAttackMessage={setUserAttackMessage} itemMessage={itemMessage} setItemMessage={setItemMessage} villainAttackMessage={villainAttackMessage} setVillainAttackMessage={setVillainAttackMessage} choice={choice} setChoice={setChoice}/> 
+        { page ?  <Story adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} battle={battle} setBattle={setBattle} message={message} setMessage={setMessage} handleBattle={handleBattle} visible={visible} setVisible={setVisible} userAttackMessage={userAttackMessage} setUserAttackMessage={setUserAttackMessage} itemMessage={itemMessage} setItemMessage={setItemMessage} villainAttackMessage={villainAttackMessage} setVillainAttackMessage={setVillainAttackMessage} choice={choice} setChoice={setChoice} ignite={ignite} setIgnite={setIgnite}/> 
         : 
         <Store adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy}/>} 
     </div>

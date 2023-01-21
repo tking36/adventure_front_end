@@ -40,6 +40,8 @@ interface Props {
     setVillainAttackMessage: React.Dispatch<React.SetStateAction<string>>;
     choice: number;
     setChoice: React.Dispatch<React.SetStateAction<number>>;
+    ignite: boolean;
+    setIgnite: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface Adventure {
@@ -52,7 +54,7 @@ interface Adventure {
     villains:number
   }
 
-const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, message, visible, userAttackMessage, itemMessage, villainAttackMessage,playerInventory, level, choice, bank  }) => {
+const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, message, visible, userAttackMessage, itemMessage, villainAttackMessage,playerInventory, level, choice, bank, ignite  }) => {
 
     const Cockpit = require('./images/cockpit.png')
     const Earth = require('./images/Earth.png')
@@ -67,13 +69,19 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
     const Ship2 = require('./images/Ship2.png')
     const Attack = require('./images/Attack.gif')
     const Astroids = require('./images/Astroids.png')
+    const Ship3 = require('./images/Ship3.png')
+    const Home = require('./images/Home.png')
+    const Ignite = require('./images/Ignite.gif')
+    const Fireworks = require('./images/Fireworks.gif')
+    
+    
    
     
    
 
     return(
         <div className="story">
-            {level === 0 || level === 1 && choice != 1 || level === 2 && choice != 1 && choice != 2 || level === 3 || level === 4 || level === 5 ? <img className='cockpit-png' src={Cockpit} alt=""/> 
+            {level === 0 || level === 1 && choice != 1 || level === 2 && choice != 1 && choice != 2 || level === 3 || level === 4 || level === 5 && choice != 2? <img className='cockpit-png' src={Cockpit} alt=""/> 
             : null}
             { level === 1 && choice === 2 ?
             <>
@@ -125,6 +133,13 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
             <>
                 <div className="glow-middle2"></div>
                 <img src={Planet2} alt="" className="middle-window2" />
+                {ignite? 
+                <>
+                <img src={Ignite} alt="" className="booster1" />
+                <img src={Ignite} alt="" className="booster2" />
+                </>
+                : null}
+                
             </>
             : null}
 
@@ -151,6 +166,12 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
                 <div className="glow-middle5 "></div>
                 <div className="glow-middle6 "></div>
                 <img src={Frozen} alt="" className="middle-window2" />
+                {ignite? 
+                <>
+                <img src={Ignite} alt="" className="booster1" />
+                <img src={Ignite} alt="" className="booster2" />
+                </>
+                : null}
             </>
             : null}
 
@@ -209,6 +230,23 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
             <div className="glow-middle3"></div>
                 <img src={Earth} alt="" className="middle-window4" />
                 <img src={Astroids} alt="" className="middle-window6" />
+                {ignite? 
+                <>
+                <img src={Ignite} alt="" className="booster1" />
+                <img src={Ignite} alt="" className="booster2" />
+                </>
+                : null}
+            </>
+            : null}
+
+            {level === 4 && choice === 1 ?
+            <>
+            
+                <div className="glow-middle3"></div>
+                <img src={Earth} alt="" className="middle-window4" />
+                <img src={Astroids} alt="" className="middle-window6" />
+                <img src={Ship3} alt="" className="middle-window7" />
+                {bank === 1 ? <img src={Attack} alt="" className="middle-window5" />   : null}
             </>
             : null}
 
@@ -222,20 +260,52 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
             {level === 4 && choice === 2 ?
             <>
             <h1>Resources +0</h1>
+            <div className="glow-middle3"></div>
+            <img src={Earth} alt="" className="middle-window4" />
+            <img src={Astroids} alt="" className="middle-window6" />
             </>
             : null}
 
-            {level === 5 && villains[0][0] <= 0 ?
+            {level === 5 && choice === 0 ?
             <>
-            <h1>Elki Defeated</h1>
+            <div className="glow-middle3"></div>
+                <img src={Earth} alt="" className="middle-window4" />
+                <img src={Astroids} alt="" className="middle-window6" />
+                {ignite? 
+                <>
+                <img src={Ignite} alt="" className="booster1" />
+                <img src={Ignite} alt="" className="booster2" />
+                </>
+                : null}
+                {villains[0][0] <= 0 ? <h1>Elki Defeated</h1> : <h1>Resources +0</h1>}
             </>
-            : null}
+            : null}     
+
+        
 
             {level === 5 && choice === 1 ?
             <>
-            <h1>Resources +0</h1>
+                <div className="glow-middle5"></div>
+                <img src={Earth} alt="" className="middle-window2" />
+                {ignite? 
+                <>
+                <img src={Ignite} alt="" className="booster1" />
+                <img src={Ignite} alt="" className="booster2" />
+                </>
+                : null}
             </>
             : null}
+
+            {level === 5 && choice === 2 ?
+            <>
+                
+                <img src={Home} alt="" className="offering" />
+                <img src={Fireworks} alt="" className="middle-window7" />
+                
+            </>
+            : null}
+
+            
 
             
         </div>

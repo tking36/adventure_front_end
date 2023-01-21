@@ -41,6 +41,8 @@ const Store: React.FC<Props> = ({ setPage, adventure, items, setBank, setPlayerI
 
     const [buyItem , setBuyItem] = useState(false)
 
+    const Button = require('./images/Button.png')
+
 
     const buy = (num:number) => {
             if (num === 1) {
@@ -68,12 +70,12 @@ const Store: React.FC<Props> = ({ setPage, adventure, items, setBank, setPlayerI
                 <div className="store-item">
                     <h3>{items[0][1]}</h3>
                     <p>Price: {items[0][0]}</p>
-                    <button onClick={() => {buy(1); setPage(true); setShopOpen(false); setLevel(0)} }>Buy</button>
+                    <div className='button' onClick={() => {buy(1); setPage(true); setShopOpen(false); setLevel(0)} }>Buy</div>
                 </div>
                 <div className="store-item">
                     <h3>{items[1][1]}</h3>
                     <p>Price: {items[1][0]}</p>
-                    <button onClick={() => {buy(2); setPage(true); setShopOpen(false); setLevel(0)} }>Buy</button>
+                    <div className='button' onClick={() => {buy(2); setPage(true); setShopOpen(false); setLevel(0)} }>Buy</div>className='button' 
                 </div>
                 </>
                 : null}

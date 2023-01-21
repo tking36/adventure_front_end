@@ -23,23 +23,23 @@ const Inventory: React.FC<Props> = ({ playerInventory, setPlayerInventory , reso
        ( // Add this pair of parentheses
         <div className="inventory">
             {!visible && level === 1  ?
-            <button onClick={() => {setVisible(true)}}>Continue</button>
+            <div className='button2' onClick={() => {setVisible(true)}}>Continue</div>
             : null}
 
             {!visible && level === 2  ?
-            <button onClick={() => {setVisible(true)}}>Continue</button>
+            <div className='button2' onClick={() => {setVisible(true)}}>Continue</div>
             : null}     
 
             {!visible && level === 3  ?
-            <button onClick={() => {setVisible(true)}}>Continue</button>
+            <div className='button2' onClick={() => {setVisible(true)}}>Continue</div>
             : null} 
 
             {!visible && level === 4  ?
-            <button onClick={() => {setVisible(true)}}>Continue</button>
+            <div className='button2' onClick={() => {setVisible(true)}}>Continue</div>
             : null} 
 
             {!visible && level === 5  ?
-            <button onClick={() => {setVisible(true)}}>Continue</button>
+            <div className='button2' onClick={() => {setVisible(true)}}>Continue</div>
             : null}           
         </div>
     ) : null 
