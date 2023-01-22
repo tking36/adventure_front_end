@@ -15,11 +15,13 @@ interface Props {
     setLevel: React.Dispatch<React.SetStateAction<number>>;
     choice: number;
     setChoice: React.Dispatch<React.SetStateAction<number>>;
+    health: number;
+    setHealth: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Inventory: React.FC<Props> = ({ playerInventory, setPlayerInventory , resources, setResources, bank, setBank, battle, visible, setVisible, level, choice }) => {
+const Inventory: React.FC<Props> = ({ playerInventory, setPlayerInventory , resources, setResources, bank, setBank, battle, visible, setVisible, level, choice, health }) => {
     return(
-       (!battle) ? 
+       (!battle && health >= 0) ? 
        ( // Add this pair of parentheses
         <div className="inventory">
             {!visible && level === 1  ?

@@ -1,3 +1,4 @@
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
 
 interface Props {
@@ -44,6 +45,8 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
         }
     }
 
+    
+
     return(
         <div className={battle? "info-container locked" : "info-container"}>
             {!ignite && !battle ? <h1 className='info-title'>Status</h1> : null}
@@ -51,8 +54,8 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
             {/* {ignite ? <h1 className='info-title flashing'>Approaching Planet</h1> :null} */}
                 {level === 0 && !shopOpen ?
                 <>
-                <p className={ignite? "info info-update" : "info"}> 
-                     As the Earth's resources dwindled, governments and corporations scrambled to find new sources of energy and materials. Desperate times called for desperate measures, and soon a lone astronaut was sent hurtling into the vast expanse of space, tasked with finding new resources to save humanity.
+                <p  className={ignite? "info info-update" : "info"}> 
+                     <span className="type">As the Earth's resources dwindled</span><span className="type">, governments and corporations scrambled to find new sources of energy and materials.</span> Desperate times called for desperate measures, and soon a lone astronaut was sent hurtling into the vast expanse of space, tasked with finding new resources to save humanity.
                  </p>
                  </>
             : null}
@@ -107,11 +110,11 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
                 </>
                 : null}
 
-                {level === 2 && choice === 1 ?
+                {/* {level === 2 && choice === 1 ?
                 <p className={ignite? "info info-update" : "info"}>
                     The astronaut makes the decision to help the alien species. The alien takes the astronaut to their underground city where they show them their advanced technology and how they have been struggling to find resources for themselves. The astronaut offers to help the alien species find resources and the alien leader agrees. The astronaut and the alien leader work together to find resources and they are able to save the alien species from extinction.
                 </p>
-                    : null}
+                    : null} */}
 
                 {level === 1 && choice === 2 && ! battle ?
                 <p className={ignite? "info info-update" : "info"}>
@@ -145,7 +148,7 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
 
                 {level === 3 && choice === 1 ?
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut decides to run from the Zetans. They quickly board their ship and take off, leaving the hostile planet behind. The Zetans pursue, firing their weapons at the ship. The astronaut dodges and weaves, trying to outrun the Zetans. The chase is intense, and the astronaut takes some damage to their ship, but they manage to escape.
+                    The astronaut decides to run from the Zetans. They quickly board their ship, drop a bomb, and take off, leaving the hostile planet behind. The Zetans pursue, firing their weapons at the ship. The astronaut dodges and weaves, trying to outrun the Zetans. The chase is intense, and the astronaut takes some damage to their ship, but they manage to escape.
                 </p>
                 : null}
 

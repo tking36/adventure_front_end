@@ -72,18 +72,16 @@ const Store: React.FC<Props> = ({ setPage, adventure, items, setBank, setPlayerI
         <div className="store">
             {level === 7 ?  
             <>
-            <h1>Before you begin your journey</h1>
-            <h1>Choose a Health Upgrade or Weapon Upgrade</h1>
+            <h1 className='howto'>Before you begin your journey</h1>
+            <h1 className='howto'>Choose a Health Upgrade or Weapon Upgrade</h1>
             
-                <div className="store-item">
+                <div className="store-item howto">
                     <h3>{items[0][1]}</h3>
-                    <p>Price: {items[0][0]}</p>
                     <div className='button' onClick={() => {buy(1); setPage(true); setShopOpen(false); setLevel(0); blastOff()} }>Buy</div>
                 </div>
-                <div className="store-item">
+                <div className="store-item howto">
                     <h3>{items[1][1]}</h3>
-                    <p>Price: {items[1][0]}</p>
-                    <div className='button' onClick={() => {buy(2); setPage(true); setShopOpen(false); setLevel(0); blastOff()} }>Buy</div>className='button' 
+                    <div className='button' onClick={() => {buy(2); setPage(true); setShopOpen(false); setLevel(0); blastOff()} }>Buy</div> 
                 </div>
                 </>
                 : null}

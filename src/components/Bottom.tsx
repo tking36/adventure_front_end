@@ -152,15 +152,15 @@ if (delayed) {
 
     return(
         <div className="bottom">
-            {level === 0 && shopOpen ? <h1 className='bottom-title'>How To Play</h1> : <h1>Control Panel</h1> }
+            {level === 0 && shopOpen ? <h1 className='bottom-title'>How To Play</h1> : <h1 className='bottom-title'>Control Panel</h1> }
 
             {level === 0 && shopOpen ?
-            <>
-            <h1>Earth Sends You To Collect Resources</h1>
-            <h1>Make The Best Choice When Faced With A Difficult Situation</h1>
-            <h1>Return to Earth With Resources To Save Humanity</h1>
+            <div>
+            <h1 className='howto'>Earth Sends You To Collect Resources</h1>
+            <h1 className='howto'>Make The Best Choice When Faced With A Difficult Situation</h1>
+            <h1 className='howto'>Return to Earth With Resources To Save Humanity</h1>
             <div className='button2' onClick={() => {setShopOpen(false); setLevel(7);}}>Begin Journey</div>
-            </>
+            </div>
             : null}
 
             {level  === 0 && !shopOpen  ? 
@@ -199,7 +199,7 @@ if (delayed) {
             {level === 2 && choice === 0 && visible ? 
             <div className="button-container">
             
-            <div className='button2' onClick={() => { makeChoice(1); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false); blastOff() }}>Choose to take Resources</div>
+            <div className='button2' onClick={() => { makeChoice(1); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false); blastOff();}}>Choose to take Resources</div>
             <div className='button2' onClick={() => { makeChoice(2); setBattle(false);  setDelayed(true); removeVillain(); setVisible(false); blastOff()}}>Choose to take Laser Gun</div>
             </div>
             : null}
@@ -214,7 +214,7 @@ if (delayed) {
 
             {level === 3 && choice === 0 && visible ?
             <div className="button-container">
-            <div className='button2' onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false); blastOff() }}>Choose to Run</div>
+            <div className='button2' onClick={() => { makeChoice(1);  setDelayed(true); setVisible(false); blastOff(); setHealth(health- 20) }}>Choose to Run</div>
             <div className='button2' onClick={() => { makeChoice(2);  setDelayed(true); setVisible(false); blastOff() }}>Choose to Battle</div>
             </div>
             : null}
@@ -277,13 +277,13 @@ if (delayed) {
 
             {level === 5 && choice === 2 ?
             <>
-            <h1>Congratulations!!! Earth is Saved!</h1>
-            <h1>GAME OVER</h1>
+            <h1 className='howto'>Congratulations!!! Earth is Saved!</h1>
+            <h1 className='howto'>GAME OVER</h1>
             </>
             : null}
 
             {health <= 0 ?
-            <h1>GAME OVER</h1>
+            <h1 className='howto'>GAME OVER</h1>
            
             : null}
         </div>

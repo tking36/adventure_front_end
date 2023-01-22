@@ -54,7 +54,7 @@ interface Adventure {
     villains:number
   }
 
-const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, message, visible, userAttackMessage, itemMessage, villainAttackMessage,playerInventory, level, choice, bank, ignite  }) => {
+const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, message, visible, userAttackMessage, itemMessage, villainAttackMessage,playerInventory, level, choice, bank, ignite,resources  }) => {
 
     const Cockpit = require('./images/cockpit.png')
     const Earth = require('./images/Earth.png')
@@ -87,7 +87,7 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
             { level === 1 && choice === 2 ?
             <>
              <div className="message">{userAttackMessage}</div> 
-             <div className="message">{villainAttackMessage}</div>  
+             <div className="vmessage">{villainAttackMessage}</div>  
              </>
              : null }
 
@@ -110,7 +110,7 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
             { level === 1 && choice === 1 ?
             <>
                 <img src={Mining} alt="" className="planet1-land" />
-                <h1>Resources +10</h1>
+                <h1 className="message-win">Resources +10</h1>
             </>
             : null }
 
@@ -126,7 +126,7 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
 
             { level === 2 && villains[0][0] <= 0 ?
             <>
-                <h1>Maledroid is Defeated</h1>
+                <h1 className="message-win">Maledroid is Defeated</h1>
             </>
             : null }
 
@@ -152,13 +152,13 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
 
             {level === 2 && choice === 1 ?
             <>
-            <h1>Resources +20</h1>
+            <h1 className="message-win">Resources +20</h1>
             </>
             : null}
 
             {level === 2 && choice === 2 ?
             <>
-            <h1>Attack +10</h1>
+            <h1 className="message-win">Attack +10</h1>
             </>
             : null}
 
@@ -178,7 +178,7 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
 
             {level === 3 && villains[0][0] <= 0 ?
             <>
-                <h1>Zetan Warrior is Defeated</h1>
+                <h1 className="message-win">Zetan Warrior is Defeated</h1>
             </>
             : null }
 
@@ -186,8 +186,7 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
             <>
             <img src={Frozen} alt="" className="middle-window2" />
             <img src={Bomb} alt="" className="middle-window3" />
-            <h1>Health -20</h1>
-            <h1>Resources +0</h1>
+            <h1 className="message-win1">Health -20 <br></br>Resources +0</h1>
             </>
             : null}
 
@@ -214,14 +213,13 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
             {level === 3 &&  battle && villains[0][0] < 30 ?
             <>
                 <div className="message">{userAttackMessage}</div>
-                <div className="message">{villainAttackMessage}</div>
+                <div className="vmessage">{villainAttackMessage}</div>
             </>
             : null}
 
             {level === 4 && villains[0][0] <= 0 && choice === 0 ?
             <>
-            <h1>Zetan Warrior Defeated</h1>
-            <h1>Resources +30</h1>
+            <h1 className="message-win1">Zetan Warrior Defeated <br></br> Resources +30</h1>
             </>
             : null}
 
@@ -254,13 +252,13 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
             {level === 4 && battle && villains[0][0] < 40 ?
             <>
                 <div className="message">{userAttackMessage}</div> 
-                <div className="message">{villainAttackMessage}</div>  
+                <div className="vmessage">{villainAttackMessage}</div>  
             </>
             : null }
 
             {level === 4 && choice === 2 ?
             <>
-            <h1>Resources +0</h1>
+            <h1 className="message-win">Resources +0</h1>
             <div className="glow-middle3"></div>
             <img src={Earth} alt="" className="middle-window4" />
             <img src={Astroids} alt="" className="middle-window6" />
@@ -278,7 +276,7 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
                 <img src={Ignite} alt="" className="booster2" />
                 </>
                 : null}
-                {villains[0][0] <= 0 ? <h1>Elki Defeated</h1> : <h1>Resources +0</h1>}
+                {villains[0][0] <= 0 ? <h1 className="message-win">Elki Defeated</h1> : <h1 className="message-win">Resources +0</h1>}
             </>
             : null}     
 
@@ -304,6 +302,11 @@ const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, me
                 <img src={Fireworks} alt="" className="middle-window7" />
                 
             </>
+            : null}
+            
+                
+            {!battle && (level === 0 || level === 1 && choice != 1 || level === 2 && choice != 1 && choice != 2 || level === 3 || level === 4 || level === 5 && choice != 2) ?
+            <div className="resources">Resources: <br></br>{resources}</div>
             : null}
 
             

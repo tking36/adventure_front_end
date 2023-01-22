@@ -34,9 +34,9 @@ const [page, setPage] = useState<boolean>(false);
 const [health, setHealth] = useState<number>(0)
 const [attack, setAttack] = useState<number>(0)
 const [accuracy, setAccuracy] = useState<number>(0)
-  const [items, setItems] = useState<[number, string][]>([[10, 'Health Mixture +10'],[10, 'Laser Upgrade +5']])
+  const [items, setItems] = useState<[number, string][]>([[10, 'Health Mixture +10'],[5, 'Laser Upgrade +5']])
 
-  const [villains, setVillains] = useState<[number, number, string][]>([[20, 10, 'Maldroid'], [30,15,'Zetan Warrior'], [40, 20, 'Elki']])
+  const [villains, setVillains] = useState<[number, number, string][]>([[30, 10, 'Maldroid'], [40,15,'Zetan Warrior'], [40, 20, 'Elki']])
   const [level, setLevel] = useState<number>(0)
   const [shopOpen, setShopOpen] = useState<boolean>(true)
   const [bank, setBank] = useState<number>(0)
