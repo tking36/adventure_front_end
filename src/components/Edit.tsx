@@ -26,7 +26,7 @@ const Edit: React.FC<Props> = (props) => {
 
     // const myID = [props.id as keyof typeof setAdventure]
     const [adventure, setAdventure] = useState<Adventure[]>(props.adventure)
-    const [id, setId] = useState(props.id)
+    const [id, setId] = useState(0)
     const [index, setIndex] = useState(props.index)
     
    
@@ -36,13 +36,13 @@ const Edit: React.FC<Props> = (props) => {
     
     
     const [editAdventure, setEditAdventure] = useState<Adventure>({
-        id: adventure[index].id,
-        health: adventure[index].health,
-        attack: adventure[index].attack,
-        accuracy: adventure[index].accuracy,
-        weapons: adventure[index].weapons,
-        items: adventure[index].items,
-        villains: adventure[index].villains
+        id: adventure[0].id,
+        health: adventure[0].health,
+        attack: adventure[0].attack,
+        accuracy: adventure[0].accuracy,
+        weapons: adventure[0].weapons,
+        items: adventure[0].items,
+        villains: adventure[0].villains
       });
 
 
@@ -60,7 +60,7 @@ const Edit: React.FC<Props> = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-        <h1>{adventure[0].id}</h1>
+       
         <label>
             Health:
             <input type="number" name="health" value={editAdventure.health} onChange={handleChange}/>

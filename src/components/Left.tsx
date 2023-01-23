@@ -2,6 +2,8 @@
 import User from './User'
 import Inventory from './Inventory'
 import Info from './Info'
+import React, { useState} from 'react' 
+import Edit from './Edit'
 
 interface Props {
     adventure: Adventure[];
@@ -34,6 +36,7 @@ interface Props {
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
     ignite: boolean;
     setIgnite: React.Dispatch<React.SetStateAction<boolean>>;
+    
 }
 
 interface Adventure {
@@ -47,11 +50,20 @@ interface Adventure {
 }
 
 const Left: React.FC<Props> = ({ adventure, setAdventure, health, setHealth, attack, setAttack, accuracy,setAccuracy, playerInventory, setPlayerInventory , level, setLevel, name, setName, choice, setChoice, resources, setResources, bank, setBank, battle, setBattle, villains, setVillains, shopOpen, setShopOpen, visible, setVisible, ignite, setIgnite }) => {
+
+    const Settings = require('./images/Settings.png')
+    const [settingOn , setSettingOn] = useState<boolean>(false)
+
     return(
         <div className="left">
+            {/* {settingOn ? <Edit handleUpdate={handleUpdate} getAdventures={getAdventures} adventure={adventure} setAdventure={setAdventure} id={adventure[index].id} index={index}/> : */}
+            <>
+            {/* <img onClick={() => {setSettingOn(true)} } src={Settings} alt="" className="settings" /> */}
             <User adventure={adventure} setAdventure={setAdventure} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} name={name} setName={setName} resources={resources} setResources={setResources} level={level} setLevel={setLevel}/>
             <Info health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} level={level} setLevel={setLevel} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} name={name} setName={setName} choice={choice} setChoice={setChoice} resources={resources} setResources={setResources} battle={battle} setBattle={setBattle} villains={villains} setVillains={setVillains} shopOpen={shopOpen} setShopOpen={setShopOpen} visible={visible} setVisible={setVisible} ignite={ignite} setIgnite={setIgnite}/>
             <Inventory playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} resources={resources} setResources={setResources} bank={bank} setBank={setBank} battle={battle} setBattle={setBattle} visible={visible} setVisible={setVisible} level={level} setLevel={setLevel} choice={choice} setChoice={setChoice} health={health} setHealth={setHealth}/>
+            </>
+            {/* } */}
         </div>
     )
 }

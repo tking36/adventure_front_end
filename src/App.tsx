@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import './App.css';
 import axios from 'axios'
-import Add from './components/Add'
-import Edit from './components/Edit'
 import Middle from './components/Middle'
 import Left from './components/Left'
 import Bottom from './components/Bottom'
-import Nav from './components/Nav'
+
+
 
 
 const App: React.FC = () => {
@@ -29,6 +28,7 @@ const [page, setPage] = useState<boolean>(false);
 
   
   const Space = require('./components/video/space.mp4')
+  
 
   //////////////////////Game Variables///////////////////////
 const [health, setHealth] = useState<number>(0)
@@ -133,14 +133,6 @@ const [accuracy, setAccuracy] = useState<number>(0)
             }
           }
       
-    
-  
-      
-
-        
-        
-
-
     ////////////////Battle/////////////////
 
     useEffect(() => {
@@ -165,6 +157,7 @@ const [accuracy, setAccuracy] = useState<number>(0)
         </>
           : 
         <div className="main container-fluid">
+          
           <Left adventure={adventure} setAdventure={setAdventure} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} level={level} setLevel={setLevel} name ={name}
           setName={setName} choice={choice} setChoice={setChoice} resources={resources} setResources={setResources} bank={bank} setBank={setBank} battle={battle} setBattle={setBattle} villains={villains} setVillains={setVillains} shopOpen={shopOpen} setShopOpen={setShopOpen} visible={visible} setVisible={setVisible} ignite={ignite} setIgnite={setIgnite}/>
           

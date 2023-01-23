@@ -55,29 +55,35 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
                 {level === 0 && !shopOpen ?
                 <>
                 <p  className={ignite? "info info-update" : "info"}> 
-                     <span className="type">As the Earth's resources dwindled</span><span className="type">, governments and corporations scrambled to find new sources of energy and materials.</span> Desperate times called for desperate measures, and soon a lone astronaut was sent hurtling into the vast expanse of space, tasked with finding new resources to save humanity.
+                     <span className="type">As the Earth's resources dwindled, governments and</span> <span className="type"> corporations scrambled to find new sources of energy and materials.</span> <span className="type">Desperate times called for desperate measures, and soon a lone astronaut was sent hurtling into the vast expanse of space, tasked with finding new resources to save humanity.</span>
                  </p>
                  </>
             : null}
 
             {level === 1 && choice === 0 ? 
                 <p className={ignite? "info info-update" : "info"}>
-                    After months of traveling, the astronaut's ship finally reaches a distant planet. As they prepare to land, they see strange and unfamiliar structures dotting the landscape. Suddenly, a voice crackles over the ship's communications system. It's an alien, speaking in a language the astronaut doesn't understand. The alien seems to be asking for help, but the astronaut is torn. Should they offer assistance and risk becoming embroiled in a complicated and dangerous situation, or should they take advantage of the alien's vulnerability and steal whatever resources they can find? The choice is yours
+                   <span className="type">The astronaut's ship reaches a distant planet with strange structures. An alien contacts them, speaking in a language the astronaut does not understand,</span> <span className="type"> asking for help. The astronaut must decide whether to help the alien or take advantage of their vulnerability.</span>
                 </p>
             : null}
 
             {level === 1 && choice === 1 ?
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut makes the decision to help the alien species. The alien takes the astronaut to their underground city where they show them their advanced technology and how they have been struggling to find resources for themselves. The astronaut offers to help the alien species find resources and the alien leader agrees. The astronaut and the alien leader work together to find resources and they are able to save the alien species from extinction.
+                    <span className="type">The astronaut decides to help the alien species. They take the astronaut to their underground city and show them their advanced technology and resource struggles.</span> <span className="type"> The astronaut offers to help find resources and works with the alien leader to save the alien species from extinction.</span>
                 </p>
                     : null}
 
                 {level === 1 && choice === 2 && !battle ?
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut decided not to offer assistance to the alien species. The astronaut sneaks around the alien city, looking for resources. They find a room filled with valuable resources and begin to load them onto their ship. Suddenly, the alien guards arrive and the astronaut is forced to fight their way out.
+                    <span className="type">The astronaut chooses not to help the alien and instead sneaks around their city to steal resources.</span> <span className="type"> They are successful at first, but are caught by alien guards and have to fight their way out.</span>
                 </p>
                     : null}
 
+                    {/* {level === 1 && choice === 2 && ! battle ?
+                    <p className={ignite? "info info-update" : "info"}>
+                        <span className="type">The astronaut decided not to offer assistance to the alien species.</span> <span className="type"> The astronaut sneaks around the alien city, looking for resources. They find a room filled with</span> <span className="type"> valuable resources and begin to load them onto their ship. Suddenly, the alien guards arrive and the astronaut is forced to fight their way out.</span>
+                    </p>
+                        : null} */}
+                        
                 {level === 1 && battle ? 
                 <>
                     <div className="villain-bg"></div>
@@ -102,10 +108,8 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
                 {level === 2 && choice === 0 ?
                 <>
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut continues their journey through space, scanning for new resources. Suddenly, the ship's sensors pick up a new alien race nearby. The astronaut approaches the planet cautiously, not sure what to expect. As they land, they see strange, humanoid creatures with writhing tentacles instead of hair. These aliens introduce themselves as the Gorgons.
-                </p>
-                <p className={ignite? "info info-update" : "info"}> 
-                    The astronaut establishes contact over the ship's communication system, trying to communicate with the Gorgons. The Gorgons speak a language that is difficult to understand, but the astronaut manages to make out a few words. They offer the astronaut resources or a new laser gun. The astronaut is torn between taking the resources, or the new laser gun, which could potentially be very useful in their journey.
+                <span className="type">The astronaut decides to help the alien species. They take the astronaut to their underground city and show them their advanced technology and resource struggles.</span> <span className="type"> The astronaut offers to help find resources and works with the alien leader to save the alien species from extinction.</span>
+
                 </p>
                 </>
                 : null}
@@ -116,45 +120,36 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
                 </p>
                     : null} */}
 
-                {level === 1 && choice === 2 && ! battle ?
-                <p className={ignite? "info info-update" : "info"}>
-                    The astronaut decided not to offer assistance to the alien species. The astronaut sneaks around the alien city, looking for resources. They find a room filled with valuable resources and begin to load them onto their ship. Suddenly, the alien guards arrive and the astronaut is forced to fight their way out.
-                </p>
-                    : null}
 
                 {level === 2 && choice === 1 ?
                  <p className={ignite? "info info-update" : "info"}>
-                 The astronaut decides to take the resources offered by the Gorgons. The Gorgons give the astronaut the resources, and in return, the astronaut gives them a heartfelt thank you. The astronaut leaves the planet, feeling relieved that they've acquired valuable resources for Earth. The astronaut worries that not having the new laser gun could result in being left vulnerable to other aliens.
+                <span className="type">The astronaut chooses to take resources from the Gorgons and gives a thank you in return.</span> <span className="type"> They leave the planet with the resources, but worry about not having the new laser gun that could protect them from other aliens.</span>
              </p>
                  : null}
 
                 {level === 2 && choice === 2 ?
                  <p className={ignite? "info info-update" : "info"}>
-                 The astronaut decides to take the laser gun offered by the Gorgons. The Gorgons give the astronaut the laser gun, and the astronaut thanks them. The astronaut leaves the planet, feeling excited to have acquired such a powerful weapon. The astronaut worries that not taking the resources could result in the failure of the mission.
+                 <span className="type">The astronaut chooses to take the laser gun from the Gorgons and thanks them. They leave the planet with </span> <span className="type">the weapon but worries about not having taken the resources offered by the Gorgons which could potentially lead to failure of the mission.</span>
              </p>
                  : null}
 
                 {level === 3 && choice === 0 ?
                 <>
                 <p className={ignite? "info info-update" : "info"}>
-                The astronaut continues their journey through space, scanning for new resources. Suddenly, the ship's sensors pick up a new alien race nearby. The astronaut approaches the planet cautiously, not sure what to expect. As they land, they see a group of tall, humanoid creatures with scaly skin and glowing red eyes. These aliens introduce themselves as the Zetans.
-                The astronaut establishes contact over the ship's communication system, trying to communicate with the Zetans. However, the Zetans respond in a hostile manner, making it clear that they do not wish to communicate. The astronaut realizes that the Zetans are not here to offer resources or assistance, but rather to attack.
-                <br></br> <br></br>
-
-                The astronaut is faced with a difficult decision. They could try to run and escape the planet, but the Zetans might pursue and the astronaut is not sure if the ship can outrun them. Alternatively, the astronaut could try to fight the Zetan warrior, but the warrior is heavily armed and the astronaut is not sure if they can defeat them.
+                <span className="type">The astronaut encounters a new alien race, the Zetans, who are hostile and do not wish to communicate.</span> <span className="type"> They are faced with a difficult decision: whether to try to run and escape the planet, or to fight the heavily armed Zetan warrior.</span>
                 </p>
                 </>
                 : null}
 
                 {level === 3 && choice === 1 ?
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut decides to run from the Zetans. They quickly board their ship, drop a bomb, and take off, leaving the hostile planet behind. The Zetans pursue, firing their weapons at the ship. The astronaut dodges and weaves, trying to outrun the Zetans. The chase is intense, and the astronaut takes some damage to their ship, but they manage to escape.
+                <span className="type">The astronaut escaped from hostile Zetans by quickly boarding the ship, dropping a bomb and taking off, while being chased and fired upon by the Zetans.</span> <span className="type"> Despite some damage to the ship, the astronaut was able to outrun them and successfully escape.</span>
                 </p>
                 : null}
 
                 {level === 3 && choice === 2 && !battle ?
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut decides to fight the Zetan warrior. The warrior is heavily armed, but the astronaut is determined to acquire resources for Earth. The battle is intense and the astronaut takes some damage, but they manage to defeat the warrior and acquire resources from the planet.
+                    <span className="type">The astronaut chooses to fight the heavily armed Zetan warrior in order to acquire resources for Earth.</span> <span className="type"> The battle is intense and the astronaut is injured but they defeat the warrior and successfully acquire resources from the planet.</span>
                 </p>
                 : null}
 
@@ -182,16 +177,14 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
                 {level === 4 && choice === 0 ?
                 <>
                 <p className={ignite? "info info-update" : "info"}>
-                The astronaut's ship is almost back to Earth. The astronaut has been on a long and perilous journey, but they've finally found the resources that Earth needs so desperately. The astronaut is exhausted but also filled with a sense of accomplishment.
-                <br></br> <br></br>
-                As the astronaut's ship approaches Earth, they suddenly pick up a distress signal. The signal is coming from a nearby asteroid field. The astronaut decides to investigate, hoping to help whoever is in trouble. As the astronaut's ship enters the asteroid field, they are ambushed by a rogue alien. The alien is heavily armed and clearly hostile. 
+                <span className="type">The astronaut's ship is nearing Earth after a successful journey, but picking up a distress signal from a nearby asteroid field.</span> <span className="type"> The astronaut decides to investigate, but is ambushed by a hostile, heavily armed rogue alien.</span>
                 </p>
                 </>
                 : null}
 
                 {level === 4 && choice === 1 && !battle ?
                 <p className={ignite? "info info-update" : "info"}>
-                    Battling the alien.
+                    Preparing for Battle
                 </p>
                 : null}
 
@@ -218,31 +211,31 @@ const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, se
 
                 {level === 4 && choice === 2 ?
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut evades the aliens and escapes the asteroid field. The astronaut is relieved that they were able to escape, but they are also worried that they might have missed an opportunity to acquire more resources
+                    <span className="type">The astronaut evades the aliens and escapes the asteroid field. The astronaut is relieved that they were able to escape,</span> <span className="type"> but they are also worried that they might have missed an opportunity to acquire more resources.</span>
                 </p>
                 : null}
 
                 {level === 5 && choice === 0 && villains[0][0] <= 0 ?
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut defeats the alien and acquires resources from the asteroid field. The astronaut is relieved that they were able to acquire more resources.
+                    <span className="type">The astronaut defeats the alien and acquires resources from the asteroid field.</span> <span className="type"> The astronaut is relieved that they were able to acquire more resources.</span>
                 </p>
                 : null}
 
                 {level === 5 && choice === 0  ?
                 <p className={ignite? "info info-update" : "info"}>
-                    Time to go Home
+                   <span className="type"> Time to go Home</span>
                 </p>
                 : null}
 
                 {level === 5 && choice === 1 ?
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut's ship is almost back to Earth. The astronaut has been on a long and perilous journey, but they've finally found the resources that Earth needs so desperately. The astronaut is exhausted but also filled with a sense of accomplishment. He sees Earth in the distance and begins to approach to his home planet.
+                    <span className="type">The astronaut's ship is nearing Earth after a long and difficult journey where the astronaut successfully obtained resources for Earth.</span> <span className="type"> The astronaut is tired but feels a sense of accomplishment as he approaches his home planet.</span>
                 </p>
                 : null}
 
                 {level === 5 && choice === 2 ?
                 <p className={ignite? "info info-update" : "info"}>
-                    The astronaut's ship lands on Earth. The astronaut is exhausted but also filled with a sense of accomplishment. Returning home with the resources is the most important thing to the astronaut, and they are happy to be back on Earth.
+                    <span className="type">The astronaut's ship lands on Earth. The astronaut is exhausted but also filled with a sense of accomplishment.</span> <span className="type"> Returning home with the resources is the most important thing to the astronaut, and they are happy to be back on Earth.</span>
                 </p>
                 : null}
         </div>
