@@ -1,34 +1,19 @@
 
 
 interface Props {
-    adventure: Adventure[];
-    setAdventure: React.Dispatch<React.SetStateAction<Adventure[]>>;
     health: number;
     setHealth: React.Dispatch<React.SetStateAction<number>>;
     attack: number;
     setAttack: React.Dispatch<React.SetStateAction<number>>;
-    accuracy: number;
-    setAccuracy: React.Dispatch<React.SetStateAction<number>>;
     name: string;
     setName: React.Dispatch<React.SetStateAction<string>>;
-    resources: number;
-    setResources: React.Dispatch<React.SetStateAction<number>>
     level: number;
     setLevel: React.Dispatch<React.SetStateAction<number>>;
     
 }
 
-interface Adventure {
-    id:number;
-    health: number;
-    attack:number;
-    accuracy:number;
-    weapons:number;
-    items:number;
-    villains:number
-  }
 
-const User: React.FC<Props> = ({ adventure, health, attack, accuracy,name, resources, level  }) => {
+const User: React.FC<Props> = ({ health, attack, name,level  }) => {
 
     const User = require ('./images/User.png')
     const UserBG = require ('./images/Matrix.gif')

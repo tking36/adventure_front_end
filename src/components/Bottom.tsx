@@ -1,40 +1,29 @@
 import React, { useState, useEffect} from 'react'
-import Choices from './Choices'
+
 
 interface Props {
-    adventure: Adventure[];
-    setAdventure: React.Dispatch<React.SetStateAction<Adventure[]>>;
-    setPage: React.Dispatch<React.SetStateAction<boolean>>;
-    page: boolean;
+    
+    
     villains: [number, number, string][];
     setVillains: React.Dispatch<React.SetStateAction<[number, number, string][]>>;
     health: number;
     setHealth: React.Dispatch<React.SetStateAction<number>>;
     attack: number;
     setAttack: React.Dispatch<React.SetStateAction<number>>;
-    accuracy: number;
-    setAccuracy: React.Dispatch<React.SetStateAction<number>>;
-    items: [number, string][];
     setItems: React.Dispatch<React.SetStateAction<[number, string][]>>;
     level: number;
     setLevel: React.Dispatch<React.SetStateAction<number>>;
     shopOpen: boolean;
     setShopOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    bank: number;
     setBank: React.Dispatch<React.SetStateAction<number>>;
     resources: number;
     setResources: React.Dispatch<React.SetStateAction<number>>
-    playerInventory: [number, string][];
-    setPlayerInventory: React.Dispatch<React.SetStateAction<[number, string][]>>;
-    name: string;
     setName: React.Dispatch<React.SetStateAction<string>>;
     choice: number;
     setChoice: React.Dispatch<React.SetStateAction<number>>
     battle: boolean;
     setBattle: React.Dispatch<React.SetStateAction<boolean>>;
     handleBattle: () => void
-    message: string;
-    setMessage: React.Dispatch<React.SetStateAction<string>>;
     visible: boolean;
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
     ignite: boolean;
@@ -42,18 +31,8 @@ interface Props {
     
 }
 
-interface Adventure {
-    id:number;
-    health: number;
-    attack:number;
-    accuracy:number;
-    weapons:number;
-    items:number;
-    villains:number
-  }
 
-
-  const Bottom: React.FC<Props> = ({ setPage, page, adventure, level, setLevel, name, setName, shopOpen, resources, setResources, health, setHealth, choice, setChoice, bank, setBank, battle, setBattle, villains, setVillains, attack, items, playerInventory,accuracy,setPlayerInventory, handleBattle, visible, setVisible, message, setMessage,setAttack, setShopOpen, ignite, setIgnite }) => {
+  const Bottom: React.FC<Props> = ({  level, setLevel, setName, shopOpen, resources, setResources, health, setHealth, choice, setChoice, setBank, battle, setBattle, villains, setVillains, attack,  handleBattle, visible, setVisible, setAttack, setShopOpen, ignite, setIgnite }) => {
 
     const [battleComplete, setBattleComplete] = useState(false);
     

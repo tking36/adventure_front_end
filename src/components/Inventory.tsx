@@ -1,25 +1,16 @@
-import {useState} from 'react'
 
 interface Props {
-    playerInventory: [number, string][];
-    setPlayerInventory: React.Dispatch<React.SetStateAction<[number, string][]>>;
-    resources: number;
-    setResources: React.Dispatch<React.SetStateAction<number>>
-    bank: number;
-    setBank: React.Dispatch<React.SetStateAction<number>>;
     battle: boolean;
     setBattle: React.Dispatch<React.SetStateAction<boolean>>;
     visible: boolean;
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
     level: number;
     setLevel: React.Dispatch<React.SetStateAction<number>>;
-    choice: number;
-    setChoice: React.Dispatch<React.SetStateAction<number>>;
     health: number;
     setHealth: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Inventory: React.FC<Props> = ({ playerInventory, setPlayerInventory , resources, setResources, bank, setBank, battle, visible, setVisible, level, choice, health }) => {
+const Inventory: React.FC<Props> = ({ battle, visible, setVisible, level, health }) => {
     return(
        (!battle && health >= 0) ? 
        ( // Add this pair of parentheses

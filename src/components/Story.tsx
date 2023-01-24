@@ -1,10 +1,6 @@
 
 
 interface Props {
-    adventure: Adventure[];
-    setAdventure: React.Dispatch<React.SetStateAction<Adventure[]>>;
-    setPage: React.Dispatch<React.SetStateAction<boolean>>;
-    page: boolean;
     villains: [number, number, string][];
     setVillains: React.Dispatch<React.SetStateAction<[number, number, string][]>>;
     health: number;
@@ -23,19 +19,13 @@ interface Props {
     setBank: React.Dispatch<React.SetStateAction<number>>;
     resources: number;
     setResources: React.Dispatch<React.SetStateAction<number>>
-    playerInventory: [number, string][];
-    setPlayerInventory: React.Dispatch<React.SetStateAction<[number, string][]>>;
     battle: boolean;
     setBattle: React.Dispatch<React.SetStateAction<boolean>>;
     handleBattle: () => void
-    message: string;
-    setMessage: React.Dispatch<React.SetStateAction<string>>;
     visible: boolean;
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
     userAttackMessage: string;
     setUserAttackMessage: React.Dispatch<React.SetStateAction<string>>;
-    itemMessage: string;
-    setItemMessage: React.Dispatch<React.SetStateAction<string>>;
     villainAttackMessage: string;
     setVillainAttackMessage: React.Dispatch<React.SetStateAction<string>>;
     choice: number;
@@ -44,22 +34,12 @@ interface Props {
     setIgnite: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface Adventure {
-    id:number;
-    health: number;
-    attack:number;
-    accuracy:number;
-    weapons:number;
-    items:number;
-    villains:number
-  }
 
-const Story: React.FC<Props> = ({ setPage, page, adventure, villains, battle, message, visible, userAttackMessage, itemMessage, villainAttackMessage,playerInventory, level, choice, bank, ignite,resources  }) => {
+const Story: React.FC<Props> = ({  villains, battle, visible, userAttackMessage,  villainAttackMessage, level, choice, bank, ignite,resources  }) => {
 
     const Cockpit = require('./images/cockpit.png')
     const Earth = require('./images/Earth.png')
     const Planet1 = require('./images/Planet1.png')
-    const Planet1Land = require('./images/Planet1.5.png')
     const Planet2 = require('./images/Planet2.png')
     const Offering = require('./images/Offering.png')
     const Ship = require('./images/Ship.png')

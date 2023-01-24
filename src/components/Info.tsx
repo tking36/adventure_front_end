@@ -4,18 +4,11 @@
 interface Props {
     health: number;
     setHealth: React.Dispatch<React.SetStateAction<number>>;
-    attack: number;
-    setAttack: React.Dispatch<React.SetStateAction<number>>;
-    accuracy: number;
-    setAccuracy: React.Dispatch<React.SetStateAction<number>>;
-    playerInventory: [number, string][];
-    setPlayerInventory: React.Dispatch<React.SetStateAction<[number, string][]>>;
     level: number;
     setLevel: React.Dispatch<React.SetStateAction<number>>;
     name: string;
     setName: React.Dispatch<React.SetStateAction<string>>;
     choice: number;
-    setChoice: React.Dispatch<React.SetStateAction<number>>;
     resources: number;
     setResources: React.Dispatch<React.SetStateAction<number>>
     battle: boolean;
@@ -30,28 +23,18 @@ interface Props {
     setIgnite: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Info: React.FC<Props> = ({ playerInventory, setPlayerInventory , level, setLevel, choice, setChoice, resources, setResources, health, setHealth, battle, attack, accuracy, villains, shopOpen,ignite}) => {
+const Info: React.FC<Props> = ({  level, setLevel, choice,  resources, setResources, health, setHealth, battle, villains, shopOpen,ignite}) => {
 
     const Alien = require('./images/Alien1.png');
     const Zetan = require('./images/Zetan.png');
     const Elki = require('./images/Elki.png');
 
-    const storyResult = () => {
-        if (level === 1 && choice === 1) {
-            setResources(resources + 10);
-        } else if (level === 1 && choice === 2) {
-            setResources(resources + 20);
-            setHealth(health + 10);
-        }
-    }
-
-    
 
     return(
         <div className={battle? "info-container locked" : "info-container"}>
             {!ignite && !battle ? <h1 className='info-title'>Status</h1> : null}
             {ignite   ? <h1 className='info-title flashing'>Status</h1> : null}
-            {/* {ignite ? <h1 className='info-title flashing'>Approaching Planet</h1> :null} */}
+    
                 {level === 0 && !shopOpen ?
                 <>
                 <p  className={ignite? "info info-update" : "info"}> 

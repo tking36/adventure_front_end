@@ -35,20 +35,16 @@ const [health, setHealth] = useState<number>(0)
 const [attack, setAttack] = useState<number>(0)
 const [accuracy, setAccuracy] = useState<number>(0)
   const [items, setItems] = useState<[number, string][]>([[10, 'Health Mixture +10'],[5, 'Laser Upgrade +5']])
-
   const [villains, setVillains] = useState<[number, number, string][]>([[30, 10, 'Maldroid'], [40,15,'Zetan Warrior'], [40, 20, 'Elki']])
   const [level, setLevel] = useState<number>(0)
   const [shopOpen, setShopOpen] = useState<boolean>(true)
   const [bank, setBank] = useState<number>(0)
   const [resources, setResources] = useState<number>(0)
-  const [playerInventory, setPlayerInventory] = useState<[number, string][]>([])
   const [name, setName] = useState<string>('')
   const [choice, setChoice] = useState<number>(0)
   const [battle, setBattle] = useState<boolean>(false)
-  const [message, setMessage] = useState('');
   const [visible, setVisible] = useState(false);
   const [userAttackMessage, setUserAttackMessage] = useState<string>('') 
-  const [itemMessage, setItemMessage] = useState<string>('')
   const [villainAttackMessage, setVillainAttackMessage] = useState<string>('')
   const [ignite , setIgnite] = useState<boolean>(true)
 
@@ -159,14 +155,14 @@ const [accuracy, setAccuracy] = useState<number>(0)
           <>
         <div className="main container-fluid">
           
-          <Left adventure={adventure} setAdventure={setAdventure} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} level={level} setLevel={setLevel} name ={name}
-          setName={setName} choice={choice} setChoice={setChoice} resources={resources} setResources={setResources} bank={bank} setBank={setBank} battle={battle} setBattle={setBattle} villains={villains} setVillains={setVillains} shopOpen={shopOpen} setShopOpen={setShopOpen} visible={visible} setVisible={setVisible} ignite={ignite} setIgnite={setIgnite}/>
+          <Left  health={health} setHealth={setHealth} attack={attack} setAttack={setAttack}  level={level} setLevel={setLevel} name ={name}
+          setName={setName} choice={choice} resources={resources} setResources={setResources}  battle={battle} setBattle={setBattle} villains={villains} setVillains={setVillains} shopOpen={shopOpen} setShopOpen={setShopOpen} visible={visible} setVisible={setVisible} ignite={ignite} setIgnite={setIgnite}/>
           
           <div className="right">
-          <Middle adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} battle={battle} setBattle={setBattle} handleBattle={handleBattle} message={message} setMessage={setMessage} visible={visible} setVisible={setVisible} userAttackMessage={userAttackMessage} setUserAttackMessage={setUserAttackMessage} itemMessage={itemMessage} setItemMessage={setItemMessage} villainAttackMessage={villainAttackMessage} setVillainAttackMessage={setVillainAttackMessage} choice={choice} setChoice={setChoice} ignite={ignite} setIgnite={setIgnite}/>
+          <Middle  setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources}  items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} battle={battle} setBattle={setBattle} handleBattle={handleBattle}  visible={visible} setVisible={setVisible} userAttackMessage={userAttackMessage} setUserAttackMessage={setUserAttackMessage} villainAttackMessage={villainAttackMessage} setVillainAttackMessage={setVillainAttackMessage} choice={choice} setChoice={setChoice} ignite={ignite} setIgnite={setIgnite}/>
             
-          <Bottom adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} name ={name}
-          setName={setName} choice={choice} setChoice={setChoice} battle={battle} setBattle={setBattle} handleBattle={handleBattle} message={message} setMessage={setMessage} visible={visible} setVisible={setVisible} ignite={ignite} setIgnite={setIgnite}/>
+          <Bottom  villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen}  setBank={setBank} resources={resources} setResources={setResources}  setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack}
+          setName={setName} choice={choice} setChoice={setChoice} battle={battle} setBattle={setBattle} handleBattle={handleBattle} visible={visible} setVisible={setVisible} ignite={ignite} setIgnite={setIgnite}/>
           </div>
 
         </div>
