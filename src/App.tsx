@@ -50,7 +50,7 @@ const [accuracy, setAccuracy] = useState<number>(0)
   const [userAttackMessage, setUserAttackMessage] = useState<string>('') 
   const [itemMessage, setItemMessage] = useState<string>('')
   const [villainAttackMessage, setVillainAttackMessage] = useState<string>('')
-  const [ignite , setIgnite] = useState<boolean>(false)
+  const [ignite , setIgnite] = useState<boolean>(true)
 
   //////////////////////Game Variables///////////////////////
   
@@ -63,30 +63,30 @@ const [accuracy, setAccuracy] = useState<number>(0)
     .catch((error) => console.error(error))
     }
 
-    const handleCreate = (newAdv:Adventure): any =>  {
-      axios.post("https://adventure-back-end.herokuapp.com/api/adventure", newAdv)
-      .then((res) => {
-        console.log(res.data)
-        setAdventure(adventure.concat(res.data)) 
+    // const handleCreate = (newAdv:Adventure): any =>  {
+    //   axios.post("https://adventure-back-end.herokuapp.com/api/adventure", newAdv)
+    //   .then((res) => {
+    //     console.log(res.data)
+    //     setAdventure(adventure.concat(res.data)) 
 
-      })
-    }
+    //   })
+    // }
 
-    const handleUpdate = (editAdventure:Adventure): any => {
-      console.log(editAdventure)
-      axios.put("https://adventure-back-end.herokuapp.com/api/adventure/" + editAdventure.id, editAdventure)
-        .then((response) => {
-          getAdventures()
-        })
-    }
+    // const handleUpdate = (editAdventure:Adventure): any => {
+    //   console.log(editAdventure)
+    //   axios.put("https://adventure-back-end.herokuapp.com/api/adventure/" + editAdventure.id, editAdventure)
+    //     .then((response) => {
+    //       getAdventures()
+    //     })
+    // }
 
-    const handleDelete = (data:Adventure) => {
-      axios.delete("https://adventure-back-end.herokuapp.com/api/adventure/" + data.id)
-      .then((res) => {
-        getAdventures()
-      })
-      .catch((err) => console.log(err))
-    }
+    // const handleDelete = (data:Adventure) => {
+    //   axios.delete("https://adventure-back-end.herokuapp.com/api/adventure/" + data.id)
+    //   .then((res) => {
+    //     getAdventures()
+    //   })
+    //   .catch((err) => console.log(err))
+    // }
 
     ////////////////Battle/////////////////
 
@@ -156,6 +156,7 @@ const [accuracy, setAccuracy] = useState<number>(0)
         </div>
         </>
           : 
+          <>
         <div className="main container-fluid">
           
           <Left adventure={adventure} setAdventure={setAdventure} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} level={level} setLevel={setLevel} name ={name}
@@ -167,7 +168,12 @@ const [accuracy, setAccuracy] = useState<number>(0)
           <Bottom adventure={adventure} setAdventure={setAdventure} setPage={setPage} page={page} villains={villains} setVillains={setVillains} level={level} setLevel={setLevel} shopOpen={shopOpen} setShopOpen={setShopOpen} bank={bank} setBank={setBank} resources={resources} setResources={setResources} playerInventory={playerInventory} setPlayerInventory={setPlayerInventory} items={items} setItems={setItems} health={health} setHealth={setHealth} attack={attack} setAttack={setAttack} accuracy={accuracy} setAccuracy={setAccuracy} name ={name}
           setName={setName} choice={choice} setChoice={setChoice} battle={battle} setBattle={setBattle} handleBattle={handleBattle} message={message} setMessage={setMessage} visible={visible} setVisible={setVisible} ignite={ignite} setIgnite={setIgnite}/>
           </div>
+
         </div>
+        <h1 className="small">Window Must Be Larger</h1>
+        </>
+
+        
 }
       </div>
     );
