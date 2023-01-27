@@ -3,8 +3,8 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
@@ -57,7 +57,6 @@ code {
 }
 
 .user {
-  /* background-color: yellow; */
   width: 30%;
   height: 45%;
   display: flex;
@@ -112,8 +111,6 @@ code {
   font-size: 1.5rem;
 }
 
-
-
 .info-container {
   font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
@@ -141,7 +138,6 @@ code {
   background-color: rgb(31, 244, 31);
   }
 
-
 .info-title{
   position: fixed;
   background-color: rgb(31, 244, 31);
@@ -156,7 +152,6 @@ code {
   font-family: 'Roboto Mono', monospace;
   overflow: auto;
   overflow-x: hidden;
-  
   scrollbar-color: rgb(31, 244, 31) black;
   scrollbar-width: thin;
 }
@@ -373,7 +368,7 @@ z-index: 1;
 }
 .start-container{
   width: 100%;
-  height: 55rem;
+  height: 30rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -707,11 +702,19 @@ text-shadow: rgb(66, 252, 66) 0px 0px 30px;
     display: none;
   }
 
+  .start-container{
+    display: none;
+  }
+
+  .space-video{
+    display: none;
+  }
+
   .small {
     display: block;
     margin: auto;
     width: 100%;
-    font-size: 8rem;
+    font-size: 4rem;
     color: red;
   }
 }

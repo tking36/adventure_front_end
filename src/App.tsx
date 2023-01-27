@@ -143,6 +143,7 @@ const [accuracy, setAccuracy] = useState<number>(0)
       <div className="App container-fluid">
         {hasStarted ?
         <>
+        <h1 className="small">Window Must Be Larger</h1>
         <video className='space-video' autoPlay loop muted>
           <source src={Space} type='video/mp4'/>
         </video>
