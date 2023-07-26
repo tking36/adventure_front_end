@@ -25,7 +25,7 @@ const App: React.FC = () => {
   //////////////////////Game Variables///////////////////////
   const [health, setHealth] = useState<number>(100);
   const [attack, setAttack] = useState<number>(10);
-  const [accuracy, setAccuracy] = useState<number>(0);
+  const [accuracy, setAccuracy] = useState<number>(1);
   const [items, setItems] = useState<[number, string][]>([
     [10, "Health Mixture +10"],
     [5, "Laser Upgrade +5"],
